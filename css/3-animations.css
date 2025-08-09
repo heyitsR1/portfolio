@@ -1,0 +1,62 @@
+/* ========== Keyframe Animations ========== */
+@keyframes ascent-fade-in {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  @keyframes fade-in-scale-bounce {
+    0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+    70% { opacity: 1; transform: scale(1.05) translateY(-5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  
+  @keyframes slow-pan {
+    0% { transform: scale(1.1) translateX(0); }
+    100% { transform: scale(1.1) translateX(-5%); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(244, 221, 23, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(244, 221, 23, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 221, 23, 0); }
+  }
+  
+  
+  /* ========== Animation Classes ========== */
+  .ascent-anim {
+    animation: ascent-fade-in 0.1s ease-out forwards;
+  }
+  
+  .sent-message-anim {
+    opacity: 0; /* Start hidden */
+    animation: fade-in-scale-bounce 0.6s ease-out forwards;
+  }
+  
+  .checkmark {
+    color: #25D366;
+    font-size: 1.2em;
+    margin-left: 0.5rem;
+    animation: fade-in-scale-bounce 0.6s ease-out forwards;
+  }
+  
+  /* Scroll animations */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }

@@ -1,0 +1,72 @@
+/* ========== Base & Global Styles ========== */
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='5' fill='yellow' /%3E%3C/svg%3E") 6 6, default;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace, 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  a:hover,
+  button:hover {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='rgba(255, 255, 255, 0.7)' /%3E%3C/svg%3E") 8 8, pointer;
+  }
+  
+  ::selection {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  ::-moz-selection {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  /* ========== Custom Cursor ========== */
+  .custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(244, 221, 23, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    mix-blend-mode: difference;
+  }
+  
+  .custom-cursor.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(244, 221, 23, 0.6);
+  }
+  
+  .cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: rgba(244, 221, 23, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+  
+  .cursor-trail.trail-hover {
+    width: 12px;
+    height: 12px;
+    background: rgba(244, 221, 23, 0.6);
+  }

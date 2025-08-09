@@ -1,0 +1,262 @@
+/* ========== Accessibility & Responsive ========== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate,
+    .project-item,
+    .work-item,
+    .custom-cursor,
+    .cursor-trail,
+    .greek-symbol,
+    .browse-more-btn,
+    .contact-banner button,
+    #scroll-to-top {
+      animation: none !important;
+      transition: none !important;
+    }
+    .project-item::before, .browse-more-btn::before, .contact-banner button::before {
+      display: none;
+    }
+  }
+  
+  /* For tablets and smaller desktops */
+  @media (max-width: 1100px) {
+    .about-coffee-man, .about-blog-card {
+      width: 140px;
+    }
+    .about-note {
+      width: 200px;
+      display: none;
+    }
+    .about-note-text-mobile {
+      display: block;
+      max-width: 320px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }
+    .about-note-text-mobile h3 {
+      color: #F4DD17;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .about-blog-card {
+      width: 220px;
+    }
+    .about-writing {
+      font-size: 1rem;
+      max-width: 300px;
+    }
+  }
+  
+  /* For smaller tablets */
+  @media (max-width: 900px) {
+    .project-item.odd, .project-item.even {
+      flex-direction: column !important;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.2rem 0 1.5rem 0;
+    }
+    .project-item.odd .project-info,
+    .project-item.even .project-info {
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+    .project-img {
+      max-width: 90vw;
+    }
+    .project-info {
+      width: 100%;
+    }
+    .resume-main-text {
+      font-size: 2.2rem;
+    }
+    .resume-sub, .resume-title {
+      font-size: 1.1rem;
+    }
+    .work-company {
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .work-logo {
+      width: 80px;
+      height: 80px;
+    }
+    .work-title {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Disable custom cursor on touch devices */
+  @media (max-width: 768px) {
+    .custom-cursor, .cursor-trail {
+      display: none;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 700px) {
+    main {
+      padding: 1rem 0.5rem;
+    }
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+    .nav-right {
+      gap: 1.2rem;
+    }
+    .ascent-anim {
+      font-size: 1.3rem;
+    }
+    .hero-greek-row {
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .greek-symbol {
+      font-size: 1.5rem;
+    }
+    .intro-banner {
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 1.2rem 1rem;
+    }
+    .learn-more-btn {
+      position: static;
+      transform: none;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+    }
+    .github-cat {
+      width: 60px;
+      height: 60px;
+      margin-right: 0;
+    }
+    .intro-text h2 {
+      font-size: 1.3rem;
+    }
+    .learn-more-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem 1.2rem;
+      margin-top: 0.8rem;
+    }
+    .projects-section {
+      padding: 2rem 0 1.5rem 0;
+    }
+    .project-info h3 {
+      font-size: 1.1rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .project-info p {
+      padding-left: 1.5rem;
+    }
+    .browse-more-btn {
+      font-size: 0.98rem;
+      padding: 0.5rem 1.1rem;
+    }
+    .quote-section {
+      padding: 1.2rem 0 1rem 0;
+    }
+    .nepali-quote {
+      font-size: 1.1rem;
+    }
+    .about-row-container {
+      padding: 0 1.5rem;
+    }
+    .about-section-header h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .about-visuals-row1, .about-visuals-row2 {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .about-coffee-man, .about-note, .about-blog-card {
+      width: 90vw;
+      max-width: 320px;
+    }
+    .about-writing {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .contact-banner {
+      padding: 1.2rem 0.5rem;
+      max-width: 98vw;
+    }
+    .contact-banner h2 {
+      font-size: 1.1rem;
+    }
+    #scroll-to-top {
+      bottom: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  /* ... other responsive styles ... */
+
+/* For smaller tablets */
+@media (max-width: 900px) {
+    /* ... other 900px styles ... */
+  
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+    }
+    
+    .skills-intro.left-align {
+      padding: 0 1.5rem;
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 700px) {
+    /* ... other 700px styles ... */
+  
+    .skills-section {
+      padding: 3rem 0;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+    
+    .skills-intro.left-align {
+      padding: 0 1rem;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .skill-category {
+      padding: 1.5rem;
+    }
+    
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .skill-category h3 {
+      font-size: 1.3rem;
+    }
+    
+    .skill-category p {
+      font-size: 0.9rem;
+    }
+  }
