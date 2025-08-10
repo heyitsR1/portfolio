@@ -66,7 +66,7 @@ class ParticleSystem {
   }
 
   createParticles() {
-    const heroParticleCount = Math.min(150, Math.max(100, Math.floor(window.innerWidth / 20)));
+    const heroParticleCount = Math.min(20, Math.max(100, Math.floor(window.innerWidth / 20)));
     
     for (let i = 0; i < heroParticleCount; i++) {
       this.heroParticles.push({
@@ -86,7 +86,7 @@ class ParticleSystem {
       });
     }
 
-    const contentParticleCount = Math.min(60, Math.max(30, Math.floor(window.innerWidth / 50)));
+    const contentParticleCount = Math.min(20, Math.max(30, Math.floor(window.innerWidth / 50)));
     
     for (let i = 0; i < contentParticleCount; i++) {
       let x, y;
