@@ -30,7 +30,7 @@ class ParticleSystem {
     this.contentCanvas.style.height = '100%';
     this.contentCanvas.style.pointerEvents = 'none';
     this.contentCanvas.style.zIndex = '2';
-    this.contentCanvas.style.opacity = '0.6';
+    this.contentCanvas.style.opacity = '0';
     
     document.body.appendChild(this.heroCanvas);
     document.body.appendChild(this.contentCanvas);
@@ -92,22 +92,26 @@ class ParticleSystem {
       let x, y;
       const edge = Math.floor(Math.random() * 4);
       
+      // Get hero section height to position particles below it
+      const heroSection = document.querySelector('.hero');
+      const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+      
       switch (edge) {
-        case 0:
+        case 0: // Top edge of content area (below hero)
           x = Math.random() * this.contentCanvas.width;
-          y = Math.random() * (this.contentCanvas.width * 0.12);
+          y = heroHeight + Math.random() * (this.contentCanvas.width * 0.12);
           break;
-        case 1:
+        case 1: // Right edge
           x = this.contentCanvas.width * 0.88 + Math.random() * (this.contentCanvas.width * 0.12);
-          y = Math.random() * this.contentCanvas.height;
+          y = heroHeight + Math.random() * (this.contentCanvas.height - heroHeight);
           break;
-        case 2:
+        case 2: // Bottom edge
           x = Math.random() * this.contentCanvas.width;
           y = this.contentCanvas.height * 0.88 + Math.random() * (this.contentCanvas.height * 0.12);
           break;
-        case 3:
+        case 3: // Left edge
           x = Math.random() * (this.contentCanvas.width * 0.12);
-          y = Math.random() * this.contentCanvas.height;
+          y = heroHeight + Math.random() * (this.contentCanvas.height - heroHeight);
           break;
       }
       
@@ -171,8 +175,10 @@ class ParticleSystem {
       const heroBottom = heroRect.bottom;
       
       if (heroBottom > 0) {
+        // Hero section is still visible, hide content particles
         this.contentCanvas.style.opacity = '0';
       } else {
+        // Hero section is scrolled out of view, show content particles
         this.contentCanvas.style.opacity = '0.6';
       }
     }
@@ -264,6 +270,9 @@ class ParticleSystem {
   }
 
   animateContentParticles() {
+    const heroSection = document.querySelector('.hero');
+    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+    
     this.contentParticles.forEach((particle) => {
       const dx = this.mouse.x - particle.x;
       const dy = this.mouse.y - particle.y;
@@ -283,15 +292,21 @@ class ParticleSystem {
       particle.x += particle.vx;
       particle.y += particle.vy;
       
+      // Keep particles below hero section
+      if (particle.y < heroHeight) {
+        particle.y = heroHeight;
+        particle.vy = Math.abs(particle.vy) * 0.5;
+      }
+      
       if (particle.x < 0 || particle.x > this.contentCanvas.width) {
         particle.vx = -particle.vx * particle.bounceStrength;
         particle.x = Math.max(0, Math.min(this.contentCanvas.width, particle.x));
         particle.opacity = particle.originalOpacity * 0.6;
       }
       
-      if (particle.y < 0 || particle.y > this.contentCanvas.height) {
+      if (particle.y > this.contentCanvas.height) {
         particle.vy = -particle.vy * particle.bounceStrength;
-        particle.y = Math.max(0, Math.min(this.contentCanvas.height, particle.y));
+        particle.y = Math.max(heroHeight, Math.min(this.contentCanvas.height, particle.y));
         particle.opacity = particle.originalOpacity * 0.6;
       }
       
