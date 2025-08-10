@@ -86,7 +86,7 @@ class ParticleSystem {
       });
     }
 
-    const contentParticleCount = Math.min(20, Math.max(30, Math.floor(window.innerWidth / 50)));
+    const contentParticleCount = Math.min(10, Math.max(30, Math.floor(window.innerWidth / 50)));
     
     for (let i = 0; i < contentParticleCount; i++) {
       let x, y;
