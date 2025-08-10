@@ -163,34 +163,14 @@
   }
   
   .project-item:hover {
-    /* UPDATED: A subtle lift instead of a big lift and scale */
     transform: translateY(-5px);
-    /* UPDATED: A standard, non-colored shadow */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    /* This background change is subtle and clean, so we keep it */
     background: #222;
   }
   
   
   .project-item.odd { flex-direction: row; }
   .project-item.even { flex-direction: row-reverse; }
-  
-  /* .project-img {
-    flex: 0 0 400px;
-    max-width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .project-img img {
-    width: 100%;
-    border-radius: 20px;
-    background: #222;
-    transition: none;
-  } */
-  
-  /* DELETED: The rule that made the image zoom on hover is gone. */
   
   /* ========== Work Section ========== */
   .work-section { padding: 0 0 1rem 0; }

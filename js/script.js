@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Scroll Progress Indicator
   const scrollProgressBar = document.getElementById('scroll-progress-bar');
   
   function updateScrollProgress() {
@@ -12,87 +11,73 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Update on scroll
   window.addEventListener('scroll', updateScrollProgress);
   
-  // Initial call
   updateScrollProgress();
 
-  // Hero animation: Ascent in unique languages (no language tags, no repeats)
   const ascentWords = [
-    // 'Aarohan', // Nepali
-    'Ascent', // English
-    '昇進', // Japanese
-    'Восхождение', // Russian
-    '파익', // Korean
-    '升华', // Chinese
-    // 'Yükseliş', // Turkish
-    // 'Ανάβαση', // Greek
-    // 'صعود', // Arabic
-    'Подъем', // Russian (alt)
-    'आरोहण', // Sanskrit
-    'Ascenso', // Spanish
-    'Uppgång', // Swedish
-    'Ascension', // French
-    'Aufstieg', // German
-    'Ascesa', // Italian
-    'Stijging', // Dutch
-    'Tırmanış', // Turkish (alt)
-    'Kiipeäminen', // Finnish
-    'Wspinaczka', // Polish
-    'Alzata', // Italian (alt)
-    'Yükselme', // Turkish (alt2)
-    'Elevación', // Spanish (alt)
-    'Montée', // French (alt)
-    'Pendakian', // Indonesian
-    'Pendakian', // Malay
-    'Escalada', // Portuguese
-    'Escalade', // French (alt2)
-    'Arrampicata', // Italian (alt2)
-    'Climbing', // English (alt2)
-    'Klatring', // Danish
-    'Klatring', // Norwegian
-    'Kletterei', // German (alt2)
-    'Escale', // Catalan
-    'Escalada', // Galician
-    'Pāiki', // Maori
-    'Fiakarana', // Malagasy
-    'Kupanda', // Swahili
-    'Ukukhuphuka', // Zulu
-    'Igunya', // Yoruba
-    'Ugwu', // Igbo
-    'Pendakian', // Filipino
-
+    'Ascent',
+    '昇進',
+    'Восхождение',
+    '파익',
+    '升华',
+    'Подъем',
+    'आरोहण',
+    'Ascenso',
+    'Uppgång',
+    'Ascension',
+    'Aufstieg',
+    'Ascesa',
+    'Stijging',
+    'Tırmanış',
+    'Kiipeäminen',
+    'Wspinaczka',
+    'Alzata',
+    'Yükselme',
+    'Elevación',
+    'Montée',
+    'Pendakian',
+    'Escalada',
+    'Escalade',
+    'Arrampicata',
+    'Climbing',
+    'Klatring',
+    'Kletterei',
+    'Escale',
+    'Pāiki',
+    'Fiakarana',
+    'Kupanda',
+    'Ukukhuphuka',
+    'Igunya',
+    'Ugwu',
+    'Pendakian'
   ];
   let ascentIdx = 0;
   const ascentElem = document.getElementById('ascent-anim');
   let ascentInterval;
   if (ascentElem) {
     function animateAscentWord(word) {
-      // Clear existing content
       ascentElem.innerHTML = '';
       
-      // Create spans for each character
       const chars = word.split('');
       const charSpans = [];
       chars.forEach(char => {
         const span = document.createElement('span');
         span.textContent = char;
-        span.style.display = 'inline-block'; // Required for transform animations
-        span.style.opacity = 0; // Start invisible
-        span.style.filter = 'blur(5px)'; // Start blurred
+        span.style.display = 'inline-block';
+        span.style.opacity = 0;
+        span.style.filter = 'blur(5px)';
         ascentElem.appendChild(span);
         charSpans.push(span);
       });
 
-      // Animate in (more dynamic/glitchy)
       gsap.fromTo(charSpans, {
         opacity: 0,
         filter: 'blur(8px)',
-        x: (i, target) => (Math.random() - 0.5) * 50, // Random X offset
-        y: (i, target) => (Math.random() - 0.5) * 50, // Random Y offset
-        rotation: (i, target) => (Math.random() - 0.5) * 60, // Random rotation
-        scale: (i, target) => 0.8 + Math.random() * 0.4, // Random scale between 0.8 and 1.2
+        x: (i, target) => (Math.random() - 0.5) * 50,
+        y: (i, target) => (Math.random() - 0.5) * 50,
+        rotation: (i, target) => (Math.random() - 0.5) * 60,
+        scale: (i, target) => 0.8 + Math.random() * 0.4,
       }, {
         opacity: 1,
         filter: 'blur(0px)',
@@ -101,34 +86,33 @@ document.addEventListener('DOMContentLoaded', function() {
         rotation: 0,
         scale: 1,
         stagger: {
-          each: 0.02, // Optimal: 0.02 (fast) | Slower: 0.04-0.08 | Faster: 0.005-0.01
-          from: "random", // Start stagger from a random point
+          each: 0.02,
+          from: "random",
         },
-        duration: 0.2, // Optimal: 0.2s (fast) | Slower: 0.3-0.5s | Faster: 0.05-0.1s
-        ease: "power3.out", // More impactful ease
+        duration: 0.2,
+        ease: "power3.out",
         onComplete: () => {
-          // Only set up animate out if not the final Sanskrit word
           if (word !== 'आरोहण') {
             gsap.to(charSpans, {
               opacity: 0,
               filter: 'blur(8px)',
-              x: (i, target) => (Math.random() - 0.5) * 50, // Random X offset
-              y: (i, target) => (Math.random() - 0.5) * 50, // Random Y offset
-              rotation: (i, target) => (Math.random() - 0.5) * 60, // Random rotation
+              x: (i, target) => (Math.random() - 0.5) * 50,
+              y: (i, target) => (Math.random() - 0.5) * 50,
+              rotation: (i, target) => (Math.random() - 0.5) * 60,
               scale: (i, target) => 0.8 + Math.random() * 0.4,
               stagger: {
-                each: 0.015, // Optimal: 0.015 (fast) | Slower: 0.03-0.06 | Faster: 0.005-0.01
+                each: 0.015,
                 from: "random",
               },
-              duration: 0.15, // Optimal: 0.15s (fast) | Slower: 0.2-0.4s | Faster: 0.04-0.08s
+              duration: 0.15,
               ease: "power3.in",
-              delay: 0.5, // Optimal: 0.5s | Slower: 0.8-1.2s | Faster: 0.2-0.4s
+              delay: 0.5,
               onComplete: () => {
                 ascentIdx = (ascentIdx + 1) % ascentWords.length;
                 if (ascentWords[ascentIdx] !== 'आरोहण') {
                   animateAscentWord(ascentWords[ascentIdx]);
                 } else {
-                  animateAscentWord('आरोहण'); // Re-run for the Sanskrit word to make it permanent
+                  animateAscentWord('आरोहण');
                 }
               }
             });
@@ -137,11 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Start the animation
     animateAscentWord(ascentWords[ascentIdx]);
   }
 
-  // Handle scroll-to-top button
   const scrollTopButton = document.getElementById('scroll-to-top');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
@@ -157,14 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Contact form submission
   const contactForm = document.getElementById('contact-form');
   const contactBanner = document.querySelector('.contact-banner');
   const contactHeading = document.getElementById('contact-heading');
 
   if (contactForm && contactBanner) {
     contactForm.addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault();
 
       const form = event.target;
       const formData = new FormData(form);
@@ -180,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (response.ok) {
-          // Display success message
           contactForm.style.display = 'none';
           if (contactHeading) {
             contactHeading.style.display = 'none';
@@ -230,12 +210,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           }
         } else {
-          // Handle non-OK responses (e.g., validation errors from Formspree)
           alert('Oops! There was a problem submitting your form. Please try again later.');
           console.error('Formspree submission error:', response.statusText);
         }
       } catch (error) {
-        // Handle network errors
         alert('Network error. Please check your internet connection and try again.');
         console.error('Fetch error:', error);
       }

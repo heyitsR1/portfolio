@@ -13,16 +13,14 @@ class ParticleSystem {
   }
 
   init() {
-    // Create hero canvas (dense fireflies for black background)
     this.heroCanvas = document.createElement('canvas');
     this.heroCanvas.id = 'hero-particle-canvas';
-    this.heroCanvas.style.position = 'absolute'; // Changed to absolute to match hero section
+    this.heroCanvas.style.position = 'absolute';
     this.heroCanvas.style.pointerEvents = 'none';
     this.heroCanvas.style.zIndex = '1';
     this.heroCanvas.style.opacity = '0.9';
     this.heroCanvas.style.transition = 'opacity 0.5s ease-in-out';
     
-    // Create content canvas (subtle edge particles)
     this.contentCanvas = document.createElement('canvas');
     this.contentCanvas.id = 'content-particle-canvas';
     this.contentCanvas.style.position = 'fixed';
@@ -31,8 +29,8 @@ class ParticleSystem {
     this.contentCanvas.style.width = '100%';
     this.contentCanvas.style.height = '100%';
     this.contentCanvas.style.pointerEvents = 'none';
-    this.contentCanvas.style.zIndex = '2'; // Higher z-index to ensure visibility
-    this.contentCanvas.style.opacity = '0.6'; // Increased overall opacity
+    this.contentCanvas.style.zIndex = '2';
+    this.contentCanvas.style.opacity = '0.6';
     
     document.body.appendChild(this.heroCanvas);
     document.body.appendChild(this.contentCanvas);
@@ -47,7 +45,6 @@ class ParticleSystem {
   }
 
   resize() {
-    // Get the hero section element
     const heroSection = document.querySelector('.hero');
     
     if (heroSection) {
@@ -55,13 +52,11 @@ class ParticleSystem {
       const heroTop = heroRect.top + window.scrollY;
       const heroHeight = heroSection.offsetHeight;
       
-      // Position hero canvas to match hero section exactly
       this.heroCanvas.style.top = heroTop + 'px';
       this.heroCanvas.style.left = '0';
       this.heroCanvas.style.width = '100%';
       this.heroCanvas.style.height = heroHeight + 'px';
       
-      // Set canvas dimensions
       this.heroCanvas.width = window.innerWidth;
       this.heroCanvas.height = heroHeight;
     }
@@ -71,7 +66,6 @@ class ParticleSystem {
   }
 
   createParticles() {
-    // Hero particles - dense fireflies for black background
     const heroParticleCount = Math.min(150, Math.max(100, Math.floor(window.innerWidth / 20)));
     
     for (let i = 0; i < heroParticleCount; i++) {
@@ -86,35 +80,32 @@ class ParticleSystem {
         glow: Math.random() * 0.8 + 0.2,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: Math.random() * 0.04 + 0.02,
-        // Firefly wandering behavior
         wanderAngle: Math.random() * Math.PI * 2,
         wanderSpeed: Math.random() * 0.03 + 0.015,
         wanderRadius: Math.random() * 60 + 30
       });
     }
 
-    // Content particles - subtle edge particles
     const contentParticleCount = Math.min(60, Math.max(30, Math.floor(window.innerWidth / 50)));
     
     for (let i = 0; i < contentParticleCount; i++) {
-      // Position particles primarily at edges and corners
       let x, y;
       const edge = Math.floor(Math.random() * 4);
       
       switch (edge) {
-        case 0: // Top edge
+        case 0:
           x = Math.random() * this.contentCanvas.width;
-          y = Math.random() * (this.contentCanvas.height * 0.12);
+          y = Math.random() * (this.contentCanvas.width * 0.12);
           break;
-        case 1: // Right edge
+        case 1:
           x = this.contentCanvas.width * 0.88 + Math.random() * (this.contentCanvas.width * 0.12);
           y = Math.random() * this.contentCanvas.height;
           break;
-        case 2: // Bottom edge
+        case 2:
           x = Math.random() * this.contentCanvas.width;
           y = this.contentCanvas.height * 0.88 + Math.random() * (this.contentCanvas.height * 0.12);
           break;
-        case 3: // Left edge
+        case 3:
           x = Math.random() * (this.contentCanvas.width * 0.12);
           y = Math.random() * this.contentCanvas.height;
           break;
@@ -123,17 +114,15 @@ class ParticleSystem {
       this.contentParticles.push({
         x: x,
         y: y,
-        vx: (Math.random() - 0.5) * 0.8, // Slower, more subtle movement
+        vx: (Math.random() - 0.5) * 0.8,
         vy: (Math.random() - 0.5) * 0.8,
-        size: Math.random() * 2.5 + 1.2, // Larger particles
-        opacity: Math.random() * 0.6 + 0.4, // Much more visible
+        size: Math.random() * 2.5 + 1.2,
+        opacity: Math.random() * 0.6 + 0.4,
         originalOpacity: Math.random() * 0.6 + 0.4,
-        // Bouncy behavior
         bounceStrength: Math.random() * 0.6 + 0.3,
         bounceDecay: Math.random() * 0.97 + 0.02,
-        // Subtle color variation
-        hue: Math.random() * 40 + 200, // Blue to cyan range
-        saturation: Math.random() * 30 + 20 // Low saturation for subtlety
+        hue: Math.random() * 40 + 200,
+        saturation: Math.random() * 30 + 20
       });
     }
   }
@@ -141,13 +130,12 @@ class ParticleSystem {
   bindEvents() {
     window.addEventListener('resize', () => this.resize());
     
-    // Add scroll event to hide hero particles when scrolling past hero section
     window.addEventListener('scroll', () => {
       this.scrollY = window.scrollY;
       this.updateHeroCanvasVisibility();
+      this.updateContentParticleVisibility();
     });
     
-    // Performance optimization: throttle mouse events
     let throttleTimer;
     document.addEventListener('mousemove', (e) => {
       if (!throttleTimer) {
@@ -155,20 +143,18 @@ class ParticleSystem {
           this.mouse.x = e.clientX;
           this.mouse.y = e.clientY;
           throttleTimer = null;
-        }, 16); // ~60fps
+        }, 16);
       }
     });
   }
 
   updateHeroCanvasVisibility() {
-    // Get the hero section element
     const heroSection = document.querySelector('.hero');
     
     if (heroSection) {
       const heroRect = heroSection.getBoundingClientRect();
       const heroBottom = heroRect.bottom;
       
-      // Hide hero canvas when scrolling past the hero section
       if (heroBottom < 0) {
         this.heroCanvas.style.opacity = '0';
       } else {
@@ -177,15 +163,26 @@ class ParticleSystem {
     }
   }
 
+  updateContentParticleVisibility() {
+    const heroSection = document.querySelector('.hero');
+    
+    if (heroSection) {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroBottom = heroRect.bottom;
+      
+      if (heroBottom > 0) {
+        this.contentCanvas.style.opacity = '0';
+      } else {
+        this.contentCanvas.style.opacity = '0.6';
+      }
+    }
+  }
+
   animate() {
-    // Clear both canvases
     this.heroCtx.clearRect(0, 0, this.heroCanvas.width, this.heroCanvas.height);
     this.contentCtx.clearRect(0, 0, this.contentCanvas.width, this.contentCanvas.height);
     
-    // Animate hero particles (fireflies)
     this.animateHeroParticles();
-    
-    // Animate content particles (edge bouncers)
     this.animateContentParticles();
     
     requestAnimationFrame(() => this.animate());
@@ -195,23 +192,18 @@ class ParticleSystem {
     const visibleParticles = [];
     
     this.heroParticles.forEach((particle) => {
-      // Update wandering behavior
       particle.wanderAngle += particle.wanderSpeed;
       const wanderX = Math.cos(particle.wanderAngle) * particle.wanderRadius;
       const wanderY = Math.sin(particle.wanderAngle) * particle.wanderRadius;
       
-      // Update position with wandering
       particle.vx += wanderX * 0.0001;
       particle.vy += wanderY * 0.0001;
       
-      // Apply velocity
       particle.x += particle.vx;
       particle.y += particle.vy;
       
-      // Update pulse for firefly effect
       particle.pulse += particle.pulseSpeed;
       
-      // Mouse interaction
       const dx = this.mouse.x - particle.x;
       const dy = this.mouse.y - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
@@ -225,18 +217,15 @@ class ParticleSystem {
       } else {
         particle.opacity = particle.originalOpacity;
         particle.glow = particle.originalOpacity;
-        // Gradual velocity decay
         particle.vx *= 0.999;
         particle.vy *= 0.999;
       }
       
-      // Boundary handling with wrap-around
       if (particle.x < 0) particle.x = this.heroCanvas.width;
       if (particle.x > this.heroCanvas.width) particle.x = 0;
       if (particle.y < 0) particle.y = this.heroCanvas.height;
       if (particle.y > this.heroCanvas.height) particle.y = 0;
       
-      // Limit velocity
       const maxVelocity = 1.5;
       const currentVelocity = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
       if (currentVelocity > maxVelocity) {
@@ -244,30 +233,25 @@ class ParticleSystem {
         particle.vy = (particle.vy / currentVelocity) * maxVelocity;
       }
       
-      // Calculate firefly shine effect
       const pulseIntensity = Math.sin(particle.pulse) * 0.4 + 0.6;
       const currentOpacity = particle.opacity * pulseIntensity;
       const currentSize = particle.size * (0.7 + pulseIntensity * 0.5);
       
-      // Draw firefly glow (outer ring) - reduced size and opacity
       this.heroCtx.beginPath();
       this.heroCtx.arc(particle.x, particle.y, currentSize * 1.8, 0, Math.PI * 2);
       this.heroCtx.fillStyle = `rgba(244, 221, 23, ${currentOpacity * 0.04})`;
       this.heroCtx.fill();
       
-      // Draw firefly glow (middle ring) - reduced size and opacity
       this.heroCtx.beginPath();
       this.heroCtx.arc(particle.x, particle.y, currentSize * 1.3, 0, Math.PI * 2);
       this.heroCtx.fillStyle = `rgba(244, 221, 23, ${currentOpacity * 0.08})`;
       this.heroCtx.fill();
       
-      // Draw firefly core - keep bright for interactivity
       this.heroCtx.beginPath();
       this.heroCtx.arc(particle.x, particle.y, currentSize, 0, Math.PI * 2);
       this.heroCtx.fillStyle = `rgba(244, 221, 23, ${currentOpacity * 0.9})`;
       this.heroCtx.fill();
       
-      // Draw firefly sparkle (bright center) - keep bright
       this.heroCtx.beginPath();
       this.heroCtx.arc(particle.x, particle.y, currentSize * 0.4, 0, Math.PI * 2);
       this.heroCtx.fillStyle = `rgba(255, 255, 255, ${currentOpacity * 0.95})`;
@@ -276,47 +260,54 @@ class ParticleSystem {
       visibleParticles.push({ x: particle.x, y: particle.y, opacity: currentOpacity, pulseIntensity });
     });
     
-    // Draw connections between hero particles
     this.drawHeroConnections(visibleParticles);
   }
 
   animateContentParticles() {
     this.contentParticles.forEach((particle) => {
-      // Update position
+      const dx = this.mouse.x - particle.x;
+      const dy = this.mouse.y - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 100) {
+        const force = (100 - distance) / 100;
+        particle.vx -= (dx / distance) * force * 0.01;
+        particle.vy -= (dy / distance) * force * 0.01;
+        particle.opacity = particle.originalOpacity + force * 0.3;
+      } else {
+        particle.opacity = particle.originalOpacity;
+        particle.vx *= 0.99;
+        particle.vy *= 0.99;
+      }
+      
       particle.x += particle.vx;
       particle.y += particle.vy;
       
-      // Bouncy boundary handling
       if (particle.x < 0 || particle.x > this.contentCanvas.width) {
         particle.vx = -particle.vx * particle.bounceStrength;
         particle.x = Math.max(0, Math.min(this.contentCanvas.width, particle.x));
-        particle.opacity = particle.originalOpacity * 0.6; // Dim on bounce
+        particle.opacity = particle.originalOpacity * 0.6;
       }
       
       if (particle.y < 0 || particle.y > this.contentCanvas.height) {
         particle.vy = -particle.vy * particle.bounceStrength;
         particle.y = Math.max(0, Math.min(this.contentCanvas.height, particle.y));
-        particle.opacity = particle.originalOpacity * 0.6; // Dim on bounce
+        particle.opacity = particle.originalOpacity * 0.6;
       }
       
-      // Gradual opacity recovery
       particle.opacity = Math.min(particle.originalOpacity, particle.opacity + 0.005);
       
-      // Apply bounce decay
       particle.bounceStrength *= particle.bounceDecay;
       if (particle.bounceStrength < 0.2) particle.bounceStrength = 0.2;
       
-      // Create subtle color with low saturation
       const color = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${particle.opacity * 0.9})`;
       const glowColor = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${particle.opacity * 0.3})`;
       
-      // Draw subtle glow (more visible)
       this.contentCtx.beginPath();
       this.contentCtx.arc(particle.x, particle.y, particle.size * 2.5, 0, Math.PI * 2);
       this.contentCtx.fillStyle = glowColor;
       this.contentCtx.fill();
       
-      // Draw main particle (more visible)
       this.contentCtx.beginPath();
       this.contentCtx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       this.contentCtx.fillStyle = color;
@@ -352,7 +343,6 @@ class ParticleSystem {
   }
 }
 
-// Initialize particle system when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   new ParticleSystem();
 });

@@ -14,12 +14,10 @@ class CursorEffects {
     }
   
     createCursor() {
-      // Create custom cursor
       this.cursor = document.createElement('div');
       this.cursor.className = 'custom-cursor';
       document.body.appendChild(this.cursor);
   
-      // Create trail elements
       for (let i = 0; i < 8; i++) {
         const trailElement = document.createElement('div');
         trailElement.className = 'cursor-trail';
@@ -39,7 +37,6 @@ class CursorEffects {
         this.mouse.y = e.clientY;
       });
   
-      // Add hover effects for interactive elements
       const interactiveElements = document.querySelectorAll('a, button, .project-item, .work-item');
       
       interactiveElements.forEach(element => {
@@ -56,11 +53,9 @@ class CursorEffects {
     }
   
     animate() {
-      // Update cursor position
       this.cursor.style.left = this.mouse.x + 'px';
       this.cursor.style.top = this.mouse.y + 'px';
   
-      // Update trail
       this.trail.forEach((trail, index) => {
         const delay = (index + 1) * 0.1;
         trail.x += (this.mouse.x - trail.x) * (0.3 - delay * 0.02);
@@ -74,7 +69,6 @@ class CursorEffects {
     }
   }
   
-  // Initialize cursor effects
   document.addEventListener('DOMContentLoaded', () => {
     new CursorEffects();
   });

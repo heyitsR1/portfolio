@@ -6,7 +6,6 @@ class ScrollAnimations {
     }
   
     init() {
-      // Wait for DOM to be ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => this.setup());
       } else {
@@ -15,10 +14,8 @@ class ScrollAnimations {
     }
   
     setup() {
-      // Add animation classes to elements
       this.addAnimationClasses();
       
-      // Create intersection observer
       this.observer = new IntersectionObserver(
         (entries) => this.handleIntersection(entries),
         {
@@ -27,15 +24,12 @@ class ScrollAnimations {
         }
       );
   
-      // Observe elements
       this.elements.forEach(el => this.observer.observe(el));
       
-      // Add parallax effect
       this.addParallaxEffect();
     }
   
     addAnimationClasses() {
-      // Project items
       const projectItems = document.querySelectorAll('.project-item');
       projectItems.forEach((item, index) => {
         item.classList.add('scroll-animate');
@@ -43,7 +37,6 @@ class ScrollAnimations {
         this.elements.push(item);
       });
   
-      // Work items
       const workItems = document.querySelectorAll('.work-item');
       workItems.forEach((item, index) => {
         item.classList.add('scroll-animate');
@@ -51,7 +44,6 @@ class ScrollAnimations {
         this.elements.push(item);
       });
   
-      // Resume section elements
       const resumeElements = document.querySelectorAll('.resume-decoration, .resume-main-text, .resume-sub, .resume-description, .resume-view-btn');
       resumeElements.forEach((element, index) => {
         element.classList.add('scroll-animate');
@@ -59,14 +51,12 @@ class ScrollAnimations {
         this.elements.push(element);
       });
   
-      // Section headers
       const headers = document.querySelectorAll('.projects-intro, .work-intro, .about-section-header h2');
       headers.forEach(header => {
         header.classList.add('scroll-animate');
         this.elements.push(header);
       });
   
-      // About visuals
       const aboutVisuals = document.querySelectorAll('.about-coffee-man, .about-blog-card, .about-note');
       aboutVisuals.forEach((visual, index) => {
         visual.classList.add('scroll-animate');
@@ -98,5 +88,4 @@ class ScrollAnimations {
     }
   }
   
-  // Initialize scroll animations
   new ScrollAnimations();
