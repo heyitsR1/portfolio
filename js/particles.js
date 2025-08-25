@@ -1,3 +1,4 @@
+
 // Dual particle system for different sections
 class ParticleSystem {
   constructor() {
@@ -23,7 +24,7 @@ class ParticleSystem {
     
     this.contentCanvas = document.createElement('canvas');
     this.contentCanvas.id = 'content-particle-canvas';
-    this.contentCanvas.style.position = 'fixed';
+    this.contentCanvas.style.position = 'fixed'; // Changed back to fixed
     this.contentCanvas.style.top = '0';
     this.contentCanvas.style.left = '0';
     this.contentCanvas.style.width = '100%';
@@ -61,12 +62,13 @@ class ParticleSystem {
       this.heroCanvas.height = heroHeight;
     }
     
+    // Content canvas covers the full viewport
     this.contentCanvas.width = window.innerWidth;
     this.contentCanvas.height = window.innerHeight;
   }
 
   createParticles() {
-    const heroParticleCount = Math.min(20, Math.max(100, Math.floor(window.innerWidth / 20)));
+    const heroParticleCount = Math.min(70, Math.max(120, Math.floor(window.innerWidth / 20)));
     
     for (let i = 0; i < heroParticleCount; i++) {
       this.heroParticles.push({
@@ -86,53 +88,41 @@ class ParticleSystem {
       });
     }
 
-    const contentParticleCount = Math.min(10, Math.max(30, Math.floor(window.innerWidth / 50)));
+    // Create content particles positioned in viewport coordinates
+    const contentParticleCount = Math.min(30, Math.max(80, Math.floor(window.innerWidth / 40)));
+    
+    // Clear existing content particles
+    this.contentParticles = [];
     
     for (let i = 0; i < contentParticleCount; i++) {
-      let x, y;
-      const edge = Math.floor(Math.random() * 4);
-      
-      // Get hero section height to position particles below it
-      const heroSection = document.querySelector('.hero');
-      const heroHeight = heroSection ? heroSection.offsetHeight : 0;
-      
-      switch (edge) {
-        case 0: // Top edge of content area (below hero)
-          x = Math.random() * this.contentCanvas.width;
-          y = heroHeight + Math.random() * (this.contentCanvas.width * 0.12);
-          break;
-        case 1: // Right edge
-          x = this.contentCanvas.width * 0.88 + Math.random() * (this.contentCanvas.width * 0.12);
-          y = heroHeight + Math.random() * (this.contentCanvas.height - heroHeight);
-          break;
-        case 2: // Bottom edge
-          x = Math.random() * this.contentCanvas.width;
-          y = this.contentCanvas.height * 0.88 + Math.random() * (this.contentCanvas.height * 0.12);
-          break;
-        case 3: // Left edge
-          x = Math.random() * (this.contentCanvas.width * 0.12);
-          y = heroHeight + Math.random() * (this.contentCanvas.height - heroHeight);
-          break;
-      }
-      
+      // Position particles across the full viewport
       this.contentParticles.push({
-        x: x,
-        y: y,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        size: Math.random() * 2.5 + 1.2,
-        opacity: Math.random() * 0.6 + 0.4,
-        originalOpacity: Math.random() * 0.6 + 0.4,
-        bounceStrength: Math.random() * 0.6 + 0.3,
-        bounceDecay: Math.random() * 0.97 + 0.02,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: (Math.random() - 0.5) * 1.2,
+        size: Math.random() * 2.8 + 1.5,
+        opacity: Math.random() * 0.5 + 0.3,
+        originalOpacity: Math.random() * 0.5 + 0.3,
+        bounceStrength: Math.random() * 0.7 + 0.4,
+        bounceDecay: Math.random() * 0.98 + 0.01,
         hue: Math.random() * 40 + 200,
-        saturation: Math.random() * 30 + 20
+        saturation: Math.random() * 30 + 20,
+        wanderAngle: Math.random() * Math.PI * 2,
+        wanderSpeed: Math.random() * 0.02 + 0.01,
+        wanderRadius: Math.random() * 40 + 20,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.03 + 0.02,
+        interactionRadius: Math.random() * 80 + 60
       });
     }
   }
 
   bindEvents() {
-    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('resize', () => {
+      this.resize();
+      this.createParticles(); // Recreate particles on resize
+    });
     
     window.addEventListener('scroll', () => {
       this.scrollY = window.scrollY;
@@ -140,15 +130,10 @@ class ParticleSystem {
       this.updateContentParticleVisibility();
     });
     
-    let throttleTimer;
+    // Use requestAnimationFrame for smoother mouse tracking
     document.addEventListener('mousemove', (e) => {
-      if (!throttleTimer) {
-        throttleTimer = setTimeout(() => {
-          this.mouse.x = e.clientX;
-          this.mouse.y = e.clientY;
-          throttleTimer = null;
-        }, 16);
-      }
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
     });
   }
 
@@ -174,11 +159,11 @@ class ParticleSystem {
       const heroRect = heroSection.getBoundingClientRect();
       const heroBottom = heroRect.bottom;
       
-      if (heroBottom > 0) {
-        // Hero section is still visible, hide content particles
+      if (heroBottom > window.innerHeight * 0.1) {
+        // Hero section is still mostly visible, hide content particles
         this.contentCanvas.style.opacity = '0';
       } else {
-        // Hero section is scrolled out of view, show content particles
+        // Hero section is scrolled out or barely visible, show content particles
         this.contentCanvas.style.opacity = '0.6';
       }
     }
@@ -270,64 +255,132 @@ class ParticleSystem {
   }
 
   animateContentParticles() {
-    const heroSection = document.querySelector('.hero');
-    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
-    
     this.contentParticles.forEach((particle) => {
+      // Add wandering movement
+      particle.wanderAngle += particle.wanderSpeed;
+      const wanderX = Math.cos(particle.wanderAngle) * particle.wanderRadius;
+      const wanderY = Math.sin(particle.wanderAngle) * particle.wanderRadius;
+      
+      particle.vx += wanderX * 0.0002;
+      particle.vy += wanderY * 0.0002;
+      
+      // Mouse interaction
       const dx = this.mouse.x - particle.x;
       const dy = this.mouse.y - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
       
-      if (distance < 100) {
-        const force = (100 - distance) / 100;
-        particle.vx -= (dx / distance) * force * 0.01;
-        particle.vy -= (dy / distance) * force * 0.01;
-        particle.opacity = particle.originalOpacity + force * 0.3;
+      if (distance < particle.interactionRadius) {
+        const force = (particle.interactionRadius - distance) / particle.interactionRadius;
+        const interactionStrength = 0.015 + Math.random() * 0.01;
+        
+        particle.vx -= (dx / distance) * force * interactionStrength;
+        particle.vy -= (dy / distance) * force * interactionStrength;
+        particle.opacity = particle.originalOpacity + force * 0.4;
+        
+        if (Math.random() < 0.1) {
+          particle.vx += (Math.random() - 0.5) * 0.5;
+          particle.vy += (Math.random() - 0.5) * 0.5;
+        }
       } else {
         particle.opacity = particle.originalOpacity;
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
+        particle.vx *= 0.995;
+        particle.vy *= 0.995;
       }
+      
+      // Add pulsing effect
+      particle.pulse += particle.pulseSpeed;
+      const pulseIntensity = Math.sin(particle.pulse) * 0.3 + 0.7;
       
       particle.x += particle.vx;
       particle.y += particle.vy;
       
-      // Keep particles below hero section
-      if (particle.y < heroHeight) {
-        particle.y = heroHeight;
-        particle.vy = Math.abs(particle.vy) * 0.5;
-      }
-      
+      // Boundary bouncing
       if (particle.x < 0 || particle.x > this.contentCanvas.width) {
         particle.vx = -particle.vx * particle.bounceStrength;
         particle.x = Math.max(0, Math.min(this.contentCanvas.width, particle.x));
-        particle.opacity = particle.originalOpacity * 0.6;
+        particle.opacity = particle.originalOpacity * 0.7;
+        
+        if (Math.random() < 0.3) {
+          particle.vy += (Math.random() - 0.5) * 0.8;
+        }
       }
       
-      if (particle.y > this.contentCanvas.height) {
+      if (particle.y < 0 || particle.y > this.contentCanvas.height) {
         particle.vy = -particle.vy * particle.bounceStrength;
-        particle.y = Math.max(heroHeight, Math.min(this.contentCanvas.height, particle.y));
-        particle.opacity = particle.originalOpacity * 0.6;
+        particle.y = Math.max(0, Math.min(this.contentCanvas.height, particle.y));
+        particle.opacity = particle.originalOpacity * 0.7;
       }
       
-      particle.opacity = Math.min(particle.originalOpacity, particle.opacity + 0.005);
+      // Gradually restore opacity
+      particle.opacity = Math.min(particle.originalOpacity, particle.opacity + 0.008);
       
+      // Maintain bounce strength
       particle.bounceStrength *= particle.bounceDecay;
-      if (particle.bounceStrength < 0.2) particle.bounceStrength = 0.2;
+      if (particle.bounceStrength < 0.25) particle.bounceStrength = 0.25;
       
-      const color = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${particle.opacity * 0.9})`;
-      const glowColor = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${particle.opacity * 0.3})`;
+      // Limit velocity
+      const maxVelocity = 2.5;
+      const currentVelocity = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
+      if (currentVelocity > maxVelocity) {
+        particle.vx = (particle.vx / currentVelocity) * maxVelocity;
+        particle.vy = (particle.vy / currentVelocity) * maxVelocity;
+      }
       
+      // Render particle
+      const finalOpacity = particle.opacity * pulseIntensity;
+      const finalSize = particle.size * (0.8 + pulseIntensity * 0.4);
+      
+      const color = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${finalOpacity})`;
+      const glowColor = `hsla(${particle.hue}, ${particle.saturation}%, 70%, ${finalOpacity * 0.3})`;
+      
+      // Draw glow
       this.contentCtx.beginPath();
-      this.contentCtx.arc(particle.x, particle.y, particle.size * 2.5, 0, Math.PI * 2);
+      this.contentCtx.arc(particle.x, particle.y, finalSize * 2.5, 0, Math.PI * 2);
       this.contentCtx.fillStyle = glowColor;
       this.contentCtx.fill();
       
+      // Draw main particle
       this.contentCtx.beginPath();
-      this.contentCtx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      this.contentCtx.arc(particle.x, particle.y, finalSize, 0, Math.PI * 2);
       this.contentCtx.fillStyle = color;
       this.contentCtx.fill();
+      
+      // Add inner highlight
+      this.contentCtx.beginPath();
+      this.contentCtx.arc(particle.x, particle.y, finalSize * 0.4, 0, Math.PI * 2);
+      this.contentCtx.fillStyle = `hsla(${particle.hue}, ${particle.saturation}%, 85%, ${finalOpacity * 0.7})`;
+      this.contentCtx.fill();
     });
+    
+    // Draw connections between nearby particles
+    this.drawContentConnections();
+  }
+  
+  drawContentConnections() {
+    const maxConnectionDistance = 120;
+    
+    for (let i = 0; i < this.contentParticles.length; i++) {
+      for (let j = i + 1; j < this.contentParticles.length; j++) {
+        const p1 = this.contentParticles[i];
+        const p2 = this.contentParticles[j];
+        
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < maxConnectionDistance) {
+          const opacity = 0.03 * (1 - distance / maxConnectionDistance);
+          if (opacity > 0.005) {
+            this.contentCtx.beginPath();
+            this.contentCtx.moveTo(p1.x, p1.y);
+            this.contentCtx.lineTo(p2.x, p2.y);
+            this.contentCtx.strokeStyle = `hsla(200, 30%, 70%, ${opacity})`;
+            this.contentCtx.lineWidth = 0.5;
+            this.contentCtx.stroke();
+          }
+        }
+      }
+    }
   }
   
   drawHeroConnections(visibleParticles) {
