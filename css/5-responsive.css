@@ -1,5 +1,42 @@
 /* ========== Accessibility & Responsive ========== */
 
+/* Mobile Navigation */
+@media (max-width: 1024px) {
+  .hamburger-menu {
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-right {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-right.active {
+    right: 0;
+  }
+  
+  .nav-greek {
+    font-size: 2rem !important;
+  }
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
     .scroll-animate,
@@ -94,10 +131,40 @@
     .custom-cursor, .cursor-trail {
       display: none;
     }
+
   }
   
   /* For mobile devices */
   @media (max-width: 700px) {
+    .home-carousel #home-carousel-track {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      gap: 0;
+    }
+    .home-carousel .project-preview-card {
+      flex: 0 0 80vw; 
+      max-width: 90%;
+      margin: 0 auto;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .home-carousel .project-preview-card.active {
+      display: block;
+      transform: scale(1);
+      opacity: 1;
+    }
+    .home-carousel .project-preview-card.side,
+    .home-carousel .project-preview-card.hidden {
+      display: none !important;
+    }
+    .carousel-prev {
+      left: 0;
+    }
+  
+    .carousel-next {
+      right: 0;
+    }
     main {
       padding: 1rem 0.5rem;
     }
@@ -194,7 +261,7 @@
     }
     #scroll-to-top {
       bottom: 16px;
-      right: 16px;
+      right: 8px;
       width: 40px;
       height: 40px;
     }

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - r1</title>
+  <link rel="stylesheet" href="css/1-base.css">
+  <link rel="stylesheet" href="css/2-layout.css">
+  <link rel="stylesheet" href="css/3-animations.css">
+  <link rel="stylesheet" href="css/4-components.css">
+  <link rel="stylesheet" href="css/5-responsive.css">
+  <link rel="icon" type="image/png" href="assets/favicon_3.png">
+</head>
+<body id="top">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+  
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-home-link">
+        <span class="phi">φ</span>
+        <span class="r1">r1</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-greek" title="Home">α</a>
+      <a href="projects.html" class="nav-greek active" title="Projects">π</a>
+      <a href="blog.html" class="nav-greek" title="Blog">β</a>
+    </div>
+    <div class="hamburger-menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="projects-hero">
+    <div class="projects-hero-content">
+      <h1>My <span class="r1-highlight">Projects</span></h1>
+      <p>Cool stuff I've built and things I'm working on</p>
+    </div>
+  </section>
+
+  <section class="projects-content">
+    <div class="projects-container">
+      <!-- Filter Tags -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="programming">Programming</button>
+        <button class="filter-btn" data-filter="web-dev">Web Dev</button>
+        <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+        <a style="text-decoration: none;color:white;" href= "https://github.com/heyitsR1" target="_blank">  <button class="filter-btn" data-filter="all"> Open GitHub </button></a>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Rhythmlizer Project -->
+        <div class="project-card" data-tags="programming">
+          <div class="project-image">
+            <img src="assets/rhythmlizer.png" alt="Rhythmlizer Screenshot">
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Rhythmlizer</h3>
+              <div class="project-tags">
+                <span class="project-tag programming">Programming</span>
+              </div>
+            </div>
+            <p class="project-description">A music visualizer built on Python with six unique elementals</p>
+            <div class="project-details" style="display: none;">
+              <p>Rhythmlizer was built as my capstone project for Harvard's CS50P programme. It features six different visual elements that respond to music in real-time, creating stunning visual representations of audio data.</p>
+              <ul class="project-features">
+                <li>Real-time audio analysis</li>
+                <li>Six unique visual elements</li>
+                <li>Python-based implementation</li>
+                <li>Interactive controls</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/heyitsR1/rhymlizer" target="_blank" class="project-link" title="GitHub">
+                <svg width="24" height="24" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=ku2HHsIalDY&ab_channel=AarohanNiraula" target="_blank" class="project-link" title="YouTube">
+                <svg width="24" height="24" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5 11.9312C31.0759 11.9312 27.0825 12.0117 23.1897 12.1209L23.0316 12.1267C19.0699 12.2388 15.8729 12.3279 13.3544 12.7448C10.7295 13.1789 8.55025 14.0098 6.808 15.8009C5.06 17.5978 4.29812 19.8202 3.93875 22.4795C3.59375 25.0383 3.59375 28.2813 3.59375 32.312V36.6935C3.59375 40.7185 3.59375 43.9615 3.93875 46.5232C4.29525 49.1825 5.06 51.4049 6.808 53.2018C8.55025 54.9958 10.7295 55.8238 13.3544 56.2579C15.8729 56.6748 19.0699 56.7639 23.0316 56.876L23.1897 56.8818C27.0854 56.991 31.0759 57.0715 34.5 57.0715C37.9241 57.0715 41.9175 56.991 45.8102 56.8818L45.9684 56.876C49.9301 56.7639 53.1271 56.6748 55.6456 56.2579C58.2705 55.8238 60.4497 54.9929 62.192 53.2018C63.94 51.4049 64.7047 49.1825 65.0612 46.5232C65.4062 43.9644 65.4062 40.7214 65.4062 36.6907V32.3092C65.4062 28.2813 65.4062 25.0383 65.0612 22.4795C64.7047 19.8202 63.94 17.5978 62.192 15.8009C60.4497 14.0069 58.2705 13.1789 55.6456 12.7448C53.1271 12.3279 49.9301 12.2388 45.9655 12.1267L45.8102 12.1209C42.0412 12.0065 38.2708 11.9432 34.5 11.9312ZM31.257 42.1215C30.9291 42.3088 30.5578 42.4067 30.1802 42.4054C29.8026 42.4042 29.432 42.3038 29.1054 42.1143C28.7788 41.9248 28.5077 41.6528 28.3191 41.3256C28.1306 40.9984 28.0314 40.6275 28.0312 40.2499V28.7499C28.0314 28.3723 28.1306 28.0014 28.3191 27.6742C28.5077 27.347 28.7788 27.075 29.1054 26.8855C29.432 26.696 29.8026 26.5956 30.1802 26.5944C30.5578 26.5931 30.9291 26.691 31.257 26.8783L41.3195 32.6283C41.6493 32.8169 41.9234 33.0894 42.114 33.4181C42.3046 33.7467 42.405 34.12 42.405 34.4999C42.405 34.8799 42.3046 35.2531 42.114 35.5817C41.9234 35.9104 41.6493 36.1829 41.3195 36.3715L31.257 42.1215Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+        </div>
+
+        <!-- Sabda Project -->
+        <div class="project-card" data-tags="web-dev programming">
+          <div class="project-image">
+            <img src="assets/sabda.png" alt="Sabda Screenshot">
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Sabda: The Word Game</h3>
+              <div class="project-tags">
+                <span class="project-tag web-dev">Web Dev</span>
+                <span class="project-tag programming">Programming</span>
+              </div>
+            </div>
+            <p class="project-description">A web-based word-guesser built on HTML, Python, and Flask</p>
+            <div class="project-details" style="display: none;">
+              <p>Sabda is a web-based word-guessing game built as my capstone project for Harvard's CS50X programme. It features a clean, intuitive interface and challenging word puzzles.</p>
+              <ul class="project-features">
+                <li>Flask backend with Python</li>
+                <li>Responsive web design</li>
+                <li>Word validation system</li>
+                <li>Score tracking</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/heyitsR1/sabda/tree/main/my_project" target="_blank" class="project-link" title="GitHub">
+                <svg width="24" height="24" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+              <a href="https://www.youtube.com/watch?v=S1t3s2EGOq4&ab_channel=AarohanNiraula" target="_blank" class="project-link" title="YouTube">
+                <svg width="24" height="24" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5 11.9312C31.0759 11.9312 27.0825 12.0117 23.1897 12.1209L23.0316 12.1267C19.0699 12.2388 15.8729 12.3279 13.3544 12.7448C10.7295 13.1789 8.55025 14.0098 6.808 15.8009C5.06 17.5978 4.29812 19.8202 3.93875 22.4795C3.59375 25.0383 3.59375 28.2813 3.59375 32.312V36.6935C3.59375 40.7185 3.59375 43.9615 3.93875 46.5232C4.29525 49.1825 5.06 51.4049 6.808 53.2018C8.55025 54.9958 10.7295 55.8238 13.3544 56.2579C15.8729 56.6748 19.0699 56.7639 23.0316 56.876L23.1897 56.8818C27.0854 56.991 31.0759 57.0715 34.5 57.0715C37.9241 57.0715 41.9175 56.991 45.8102 56.8818L45.9684 56.876C49.9301 56.7639 53.1271 56.6748 55.6456 56.2579C58.2705 55.8238 60.4497 54.9929 62.192 53.2018C63.94 51.4049 64.7047 49.1825 65.0612 46.5232C65.4062 43.9644 65.4062 40.7214 65.4062 36.6907V32.3092C65.4062 28.2813 65.4062 25.0383 65.0612 22.4795C64.7047 19.8202 63.94 17.5978 62.192 15.8009C60.4497 14.0069 58.2705 13.1789 55.6456 12.7448C53.1271 12.3279 49.9301 12.2388 45.9655 12.1267L45.8102 12.1209C42.0412 12.0065 38.2708 11.9432 34.5 11.9312ZM31.257 42.1215C30.9291 42.3088 30.5578 42.4067 30.1802 42.4054C29.8026 42.4042 29.432 42.3038 29.1054 42.1143C28.7788 41.9248 28.5077 41.6528 28.3191 41.3256C28.1306 40.9984 28.0314 40.6275 28.0312 40.2499V28.7499C28.0314 28.3723 28.1306 28.0014 28.3191 27.6742C28.5077 27.347 28.7788 27.075 29.1054 26.8855C29.432 26.696 29.8026 26.5956 30.1802 26.5944C30.5578 26.5931 30.9291 26.691 31.257 26.8783L41.3195 32.6283C41.6493 32.8169 41.9234 33.0894 42.114 33.4181C42.3046 33.7467 42.405 34.12 42.405 34.4999C42.405 34.8799 42.3046 35.2531 42.114 35.5817C41.9234 35.9104 41.6493 36.1829 41.3195 36.3715L31.257 42.1215Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+        </div>
+
+        <!-- Titanic Survivor Project -->
+        <div class="project-card" data-tags="ai-ml programming">
+          <div class="project-image">
+            <img src="assets/TitanicSurvivor.png" alt="TitanicSurvivor Screenshot">
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Titanic Survivor</h3>
+              <div class="project-tags">
+                <span class="project-tag ai-ml">AI/ML</span>
+                <span class="project-tag programming">Programming</span>
+              </div>
+            </div>
+            <p class="project-description">A webapp that uses ML to predict whether a passenger on the Titanic would survive</p>
+            <div class="project-details" style="display: none;">
+              <p>Built using Jupyter Notebook as a workshop project for King's Data200 programme. This project demonstrates machine learning concepts through a classic dataset.</p>
+              <ul class="project-features">
+                <li>Machine learning prediction model</li>
+                <li>Interactive web interface</li>
+                <li>Data visualization</li>
+                <li>Jupyter Notebook implementation</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/heyitsR1/TitanicSurvivalPredictionApp" target="_blank" class="project-link" title="GitHub">
+                <svg width="24" height="24" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+              <a href="https://r1-titanic.streamlit.app/" target="_blank" class="project-link" title="Website">
+                <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_145_362)">
+                    <path d="M25 0C27.2949 0 29.5085 0.292969 31.6406 0.878906C33.7728 1.46484 35.7666 2.30306 37.6221 3.39355C39.4775 4.48405 41.1621 5.78613 42.6758 7.2998C44.1895 8.81348 45.4915 10.5062 46.582 12.3779C47.6725 14.2497 48.5107 16.2435 49.0967 18.3594C49.6826 20.4753 49.9837 22.6888 50 25C50 27.2949 49.707 29.5085 49.1211 31.6406C48.5352 33.7728 47.6969 35.7666 46.6064 37.6221C45.516 39.4775 44.2139 41.1621 42.7002 42.6758C41.1865 44.1895 39.4938 45.4915 37.6221 46.582C35.7503 47.6725 33.7565 48.5107 31.6406 49.0967C29.5247 49.6826 27.3112 49.9837 25 50C22.7051 50 20.4915 49.707 18.3594 49.1211C16.2272 48.5352 14.2334 47.6969 12.3779 46.6064C10.5225 45.516 8.83789 44.2139 7.32422 42.7002C5.81055 41.1865 4.50846 39.4938 3.41797 37.6221C2.32747 35.7503 1.48926 33.7646 0.90332 31.665C0.317383 29.5654 0.016276 27.3438 0 25C0 22.7051 0.292969 20.4915 0.878906 18.3594C1.46484 16.2272 2.30306 14.2334 3.39355 12.3779C4.48405 10.5225 5.78613 8.83789 7.2998 7.32422C8.81348 5.81055 10.5062 4.50846 12.3779 3.41797C14.2497 2.32747 16.2354 1.48926 18.335 0.90332C20.4346 0.317383 22.6562 0.016276 25 0ZM25 46.875C27.002 46.875 28.9307 46.6146 30.7861 46.0938C32.6416 45.5729 34.3831 44.8405 36.0107 43.8965C37.6383 42.9525 39.1195 41.805 40.4541 40.4541C41.7887 39.1032 42.9281 37.6302 43.8721 36.0352C44.8161 34.4401 45.5566 32.6986 46.0938 30.8105C46.6309 28.9225 46.8913 26.9857 46.875 25C46.875 22.998 46.6146 21.0693 46.0938 19.2139C45.5729 17.3584 44.8405 15.6169 43.8965 13.9893C42.9525 12.3617 41.805 10.8805 40.4541 9.5459C39.1032 8.21126 37.6302 7.07194 36.0352 6.12793C34.4401 5.18392 32.6986 4.44336 30.8105 3.90625C28.9225 3.36914 26.9857 3.10872 25 3.125C22.998 3.125 21.0693 3.38542 19.2139 3.90625C17.3584 4.42708 15.6169 5.15951 13.9893 6.10352C12.3617 7.04753 10.8805 8.19499 9.5459 9.5459C8.21126 10.8968 7.07194 12.3698 6.12793 13.9648C5.18392 15.5599 4.44336 17.3014 3.90625 19.1895C3.36914 21.0775 3.10872 23.0143 3.125 25C3.125 27.002 3.38542 28.9307 3.90625 30.7861C4.42708 32.6416 5.15951 34.3831 6.10352 36.0107C7.04753 37.6383 8.19499 39.1195 9.5459 40.4541C10.8968 41.7887 12.3698 42.9281 13.9648 43.8721C15.5599 44.8161 17.3014 45.5566 19.1895 46.0938C21.0775 46.6309 23.0143 46.8913 25 46.875ZM39.5752 25.3906L40.7471 21.875H42.5781L40.5029 28.125H38.6719L37.5 24.6094L36.3281 28.125H34.4971L32.4219 21.875H34.2529L35.4248 25.3906L36.5967 21.875H38.4033L39.5752 25.3906ZM28.2471 21.875H30.0781L28.0029 28.125H26.1719L25 24.6094L23.8281 28.125H21.9971L19.9219 21.875H21.7529L22.9248 25.3906L24.0967 21.875H25.9033L27.0752 25.3906L28.2471 21.875ZM15.7471 21.875H17.5781L15.5029 28.125H13.6719L12.5 24.6094L11.3281 28.125H9.49707L7.42188 21.875H9.25293L10.4248 25.3906L11.5967 21.875H13.4033L14.5752 25.3906L15.7471 21.875Z" fill="#E6E6E6"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_145_362">
+                      <rect width="50" height="50" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+        </div>
+
+        <!-- Chatty Project -->
+        <div class="project-card" data-tags="programming ai-ml">
+          <div class="project-image">
+            <img src="assets/chatty.png" alt="Chatty Screenshot">
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Chatty: The Nice Bot</h3>
+              <div class="project-tags">
+                <span class="project-tag programming">Programming</span>
+                <span class="project-tag ai-ml">AI/ML</span>
+              </div>
+            </div>
+            <p class="project-description">A conversation bot made in C++ using the Anthropic API and TTS integration</p>
+            <div class="project-details" style="display: none;">
+              <p>Built as my capstone project for King's OOP210 programme. Chatty demonstrates object-oriented programming principles while integrating with modern AI APIs.</p>
+              <ul class="project-features">
+                <li>C++ implementation</li>
+                <li>Anthropic API integration</li>
+                <li>Text-to-speech functionality</li>
+                <li>Object-oriented design</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/heyitsR1/chatty" target="_blank" class="project-link" title="GitHub">
+                <svg width="24" height="24" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+        </div>
+        
+        <!-- Placeholder Projects -->
+        <div class="project-card" data-tags="cloud">
+          <div class="project-image">
+            <img src="assets/Invisible_by_AWS.png" alt="Chatty Screenshot">
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Invisible VPN</h3>
+              <div class="project-tags">
+                <span class="project-tag cloud">Cloud</span>
+              </div>
+            </div>
+            <p class="project-description">Personal VPN made with Wireguard on AWS EC2</p>
+            <div class="project-details" style="display: none;">
+              <p>I made this to solve the issue of slow VPNs applying the knowlede of my <b> <a  style="color:aqua" href= " https://cp.certmetrics.com/amazon/en/public/verify/credential/beead5d061894677b2270b5f7f5f80d6" target="_blank"> Solutions Architect Associate </b> </a>certification.</p>
+              <ul class="project-features">
+                <li>Free Tier Compatible</li>
+                <li>Super Fast Speeds</li>
+                <li>Easy to Setup</li>
+                <li>Ultra Secure</li>
+              </ul>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/heyitsR1/Invisible-byAWS" target="_blank" class="project-link" title="GitHub">
+                <svg width="24" height="24" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
+                </svg>
+              </a>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+        </div>
+
+        <div class="project-card coming-soon" data-tags="web-dev">
+          <div class="project-image">
+            <div class="placeholder-image">🌐</div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>Full-Stack Web Application</h3>
+              <div class="project-tags">
+                <span class="project-tag web-dev">Web Dev</span>
+              </div>
+            </div>
+            <p class="project-description">Coming soon - A modern full-stack web application</p>
+            <div class="project-details" style="display: none;">
+              <p>This project will demonstrate my full-stack development capabilities.</p>
+            </div>
+            <button class="project-expand-btn" onclick="toggleProjectDetails(this)">More Details ⌄</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="browse-more-wrapper center-align">
+    <a href="https://github.com/heyitsR1" target="_blank" class="browse-more-btn">
+      <span>View More Projects on GitHub</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="footer">©r1 2025</div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll-animation.js"></script>
+  <script src="js/cursor-effects.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - r1</title>
+  <link rel="stylesheet" href="css/1-base.css">
+  <link rel="stylesheet" href="css/2-layout.css">
+  <link rel="stylesheet" href="css/3-animations.css">
+  <link rel="stylesheet" href="css/4-components.css">
+  <link rel="stylesheet" href="css/5-responsive.css">
+  <link rel="icon" type="image/png" href="assets/favicon_3.png">
+</head>
+<body id="top">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+  
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-home-link">
+        <span class="phi">φ</span>
+        <span class="r1">r1</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-greek" title="Home">α</a>
+      <a href="projects.html" class="nav-greek" title="Projects">π</a>
+      <a href="blog.html" class="nav-greek active" title="Blog">β</a>
+    </div>
+    <div class="hamburger-menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="blog-hero">
+    <div class="blog-hero-content">
+      <h1>My <span class="r1-highlight">Thoughts</span></h1>
+      <p>Random musings, technical insights, and life lessons</p>
+    </div>
+  </section>
+
+  <section class="blog-content">
+    <div class="blog-container">
+      <!-- Blog Post 1 -->
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <h2><a href="blog/blog1.html">the job hunt</a></h2>
+          <div class="blog-meta">
+            <span class="blog-date">2025-01-10</span>
+            <span class="blog-tags">
+              <span class="blog-tag">career</span>
+              <span class="blog-tag">reflection</span>
+            </span>
+          </div>
+        </div>
+        <div class="blog-excerpt">
+          <p> Why is getting an internship this difficult?</p>
+        </div>
+        <div class="blog-read-more">
+          <a href="blog/blog1.html" class="read-more-btn">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <h2><a href="blog/blog2.html">Building My First Startup</a></h2>
+          <div class="blog-meta">
+            <span class="blog-date">2025-01-05</span>
+            <span class="blog-tags">
+              <span class="blog-tag">web-dev</span>
+              <span class="blog-tag">startup</span>
+              <span class="blog-tag">learning</span>
+            </span>
+          </div>
+        </div>
+        <div class="blog-excerpt">
+            <p>Tailsgate.ai is in the works</p>
+        </div>
+        <div class="blog-read-more">
+          <a href="blog/blog2.html" class="read-more-btn">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="blog-post">
+        <div class="blog-post-header">
+          <h2><a href="blog/blog3.html">Why I Chose Computer Science</a></h2>
+          <div class="blog-meta">
+            <span class="blog-date">2025-01-01</span>
+            <span class="blog-tags">
+              <span class="blog-tag">personal</span>
+              <span class="blog-tag">education</span>
+            </span>
+          </div>
+        </div>
+        <div class="blog-excerpt">
+            <p> Gonna finish this soon</p>
+        </div>
+        <div class="blog-read-more">
+          <a href="blog/blog3.html" class="read-more-btn">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Placeholder for more posts -->
+      <article class="blog-post coming-soon">
+        <div class="blog-post-header">
+          <h2>Coming Soon...</h2>
+          <div class="blog-meta">
+            <span class="blog-date">TBD</span>
+            <span class="blog-tags">
+              <span class="blog-tag">placeholder</span>
+            </span>
+          </div>
+        </div>
+        <div class="blog-excerpt">
+          <p>More posts are in the works! Check back soon for updates on my latest projects and thoughts.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="footer">©r1 2025 </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll-animation.js"></script>
+  <script src="js/cursor-effects.js"></script>
+</body>
+</html>

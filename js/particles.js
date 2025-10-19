@@ -10,6 +10,7 @@ class ParticleSystem {
     this.contentParticles = [];
     this.mouse = { x: 0, y: 0 };
     this.scrollY = 0;
+    this.frameCount = 0;
     this.init();
   }
 
@@ -68,8 +69,19 @@ class ParticleSystem {
   }
 
   createParticles() {
-    const heroParticleCount = Math.min(70, Math.max(120, Math.floor(window.innerWidth / 20)));
+    // Clear existing particles first
+    this.heroParticles = [];
+    this.contentParticles = [];
     
+    // Mobile optimization - reduce particles on smaller screens
+    const isMobile = window.innerWidth < 768;
+    const mobileMultiplier = isMobile ? 0.4 : 1; // Reduced mobile multiplier
+    
+    // Calculate particle counts with stricter limits
+    const heroParticleCount = Math.min(60, Math.max(15, Math.floor(window.innerWidth / 30))) * mobileMultiplier;
+    const contentParticleCount = Math.min(40, Math.max(8, Math.floor(window.innerWidth / 50))) * mobileMultiplier;
+    
+    // Create hero particles
     for (let i = 0; i < heroParticleCount; i++) {
       this.heroParticles.push({
         x: Math.random() * this.heroCanvas.width,
@@ -88,14 +100,8 @@ class ParticleSystem {
       });
     }
 
-    // Create content particles positioned in viewport coordinates
-    const contentParticleCount = Math.min(30, Math.max(80, Math.floor(window.innerWidth / 40)));
-    
-    // Clear existing content particles
-    this.contentParticles = [];
-    
+    // Create content particles
     for (let i = 0; i < contentParticleCount; i++) {
-      // Position particles across the full viewport
       this.contentParticles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
@@ -119,9 +125,14 @@ class ParticleSystem {
   }
 
   bindEvents() {
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-      this.resize();
-      this.createParticles(); // Recreate particles on resize
+      // Debounce resize events to prevent excessive particle recreation
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this.resize();
+        this.createParticles(); // Recreate particles on resize
+      }, 150);
     });
     
     window.addEventListener('scroll', () => {
@@ -135,6 +146,18 @@ class ParticleSystem {
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
     });
+  }
+
+  // Add cleanup method
+  destroy() {
+    if (this.heroCanvas && this.heroCanvas.parentNode) {
+      this.heroCanvas.parentNode.removeChild(this.heroCanvas);
+    }
+    if (this.contentCanvas && this.contentCanvas.parentNode) {
+      this.contentCanvas.parentNode.removeChild(this.contentCanvas);
+    }
+    this.heroParticles = [];
+    this.contentParticles = [];
   }
 
   updateHeroCanvasVisibility() {
@@ -176,7 +199,16 @@ class ParticleSystem {
     this.animateHeroParticles();
     this.animateContentParticles();
     
-    requestAnimationFrame(() => this.animate());
+    // Reduce animation frequency on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    const delay = isMobile ? 2 : 1;
+    
+    if (this.frameCount % delay === 0) {
+      requestAnimationFrame(() => this.animate());
+    } else {
+      this.frameCount++;
+      requestAnimationFrame(() => this.animate());
+    }
   }
 
   animateHeroParticles() {

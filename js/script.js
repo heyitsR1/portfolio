@@ -1,3 +1,128 @@
+// Mobile menu functionality
+function toggleMobileMenu() {
+  const navRight = document.querySelector('.nav-right');
+  const hamburger = document.querySelector('.hamburger-menu');
+  
+  navRight.classList.toggle('active');
+  hamburger.classList.toggle('active');
+}
+
+// Close mobile menu when clicking on nav links
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-greek');
+  const navRight = document.querySelector('.nav-right');
+  const hamburger = document.querySelector('.hamburger-menu');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navRight.classList.remove('active');
+      hamburger.classList.remove('active');
+    });
+  });
+});
+
+// Intro expansion functionality
+function toggleIntroExpansion() {
+  const expanded = document.getElementById('intro-expanded');
+  const button = document.getElementById('intro-more-btn');
+  const subtitle = document.getElementById('subtitle');
+  
+  if (expanded.style.display === 'none' || expanded.style.display === '') {
+    subtitle.style.display = 'none';
+    expanded.style.display = 'block';
+    button.innerHTML = 'Less ⌃';
+    button.style.transform = 'rotate(0deg)';
+    
+    // Smooth scroll to expanded content
+    setTimeout(() => {
+      expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  } else {
+    expanded.style.display = 'none';
+    subtitle.style.display = 'block';
+    button.innerHTML = 'More ⌄';
+    button.style.transform = 'rotate(0deg)';
+  }
+}
+// Home carousel functionality
+let currentHomeSlide = 2; // Start in middle
+const totalHomeSlides = 5;
+
+function changeHomeSlide(direction) {
+  const track = document.getElementById('home-carousel-track');
+  const cards = document.querySelectorAll('.home-carousel .project-preview-card');
+  
+  if (!track || cards.length === 0) return;
+
+  currentHomeSlide += direction;
+
+  // Handle boundaries with wrapping
+  if (currentHomeSlide < 0) {
+    currentHomeSlide = totalHomeSlides - 1;
+  } else if (currentHomeSlide >= totalHomeSlides) {
+    currentHomeSlide = 0;
+  }
+
+  // Check if we're in mobile view
+  const isMobile = window.innerWidth <= 768;
+
+  // Update card states
+  cards.forEach((card, index) => {
+    card.classList.remove('active', 'side', 'hidden');
+
+    if (index === currentHomeSlide) {
+      // Only the center card is active
+      card.classList.add('active');
+    } else if (!isMobile) {
+      // Calculate side card positions
+      const prevIndex = (currentHomeSlide - 1 + totalHomeSlides) % totalHomeSlides;
+      const nextIndex = (currentHomeSlide + 1) % totalHomeSlides;
+      
+      if (index === prevIndex || index === nextIndex) {
+        // Only the immediate neighbors are side cards
+        card.classList.add('side');
+      } else {
+        // All other cards are hidden
+        card.classList.add('hidden');
+      }
+    } else {
+      // On mobile, hide all non-active cards
+      card.classList.add('hidden');
+    }
+  });
+}
+
+// Initialize home carousel
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.home-carousel .project-preview-card');
+  if (cards.length > 0) {
+    // Set initial state - middle card active (index 2)
+    const isMobile = window.innerWidth <= 768;
+    
+    cards.forEach((card, index) => {
+      card.classList.remove('active', 'side', 'hidden');
+      
+      if (index === 2) {
+        // Only the center card is active
+        card.classList.add('active');
+      } else if (!isMobile) {
+        // Calculate side card positions for initial state
+        const prevIndex = (2 - 1 + totalHomeSlides) % totalHomeSlides;
+        const nextIndex = (2 + 1) % totalHomeSlides;
+        
+        if (index === prevIndex || index === nextIndex) {
+          card.classList.add('side');
+        } else {
+          card.classList.add('hidden');
+        }
+      } else {
+        // On mobile, hide all non-active cards
+        card.classList.add('hidden');
+      }
+    });
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   const scrollProgressBar = document.getElementById('scroll-progress-bar');
   

@@ -25,6 +25,16 @@
         <span class="r1">r1</span>
       </a>
     </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-greek active" title="Home">α</a>
+      <a href="projects.html" class="nav-greek" title="Projects">π</a>
+      <a href="blog.html" class="nav-greek" title="Blog">β</a>
+    </div>
+    <div class="hamburger-menu"  onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
   <section class="hero">
     <video autoplay loop muted playsinline class="hero-video-background">
@@ -35,145 +45,137 @@
       <span id="ascent-anim" class="ascent-anim">Aarohan</span>
     </div>
     <div class="hero-greek-row">
-      <a href="#intro-banner" class="greek-symbol">α</a>
-      <a href="#projects" class="greek-symbol">π</a>
-      <a href="#skills" class="greek-symbol">τ</a>
-      <a href="#work" class="greek-symbol">σ</a>
+      <a href="#intro-banner" class="greek-symbol">σ</a>
+      <a href="#projects" class="greek-symbol">λ</a>
+      <a href="#skills" class="greek-symbol">ω</a>
+      <a href="#contact" class="greek-symbol">τ</a>
     </div>
   </section>
   <section id="about" class="intro-section">
     <video autoplay muted loop class="intro-video-background">
       <source src="assets/wave.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support the video tag. 
     </video>
     <div class="intro-content">
       <div class="intro-banner" id = "intro-banner">
         <img src="assets/cat.svg" alt="GitHub Cat" class="github-cat">
         <div class="intro-text">
           <h2>Hi, I am <span class="r1-highlight">r1</span></h2>
-          <div class="subtitle">Aspiring Software Engineer & Student</div>
+          <div class="subtitle" id="subtitle">Aspiring Software Engineer & Student</div>
         </div>
-        <button class="learn-more-btn" onclick="document.getElementById('About').scrollIntoView({behavior: 'smooth'})">
+        <button class="learn-more-btn" id="intro-more-btn" onclick="toggleIntroExpansion()">
           More ⌄
         </button>
+        <div class="intro-expanded" id="intro-expanded" style="display: none;">
+          <p>Just your typical guy that likes computers;
+          </p>
+          <p>
+            I find programming fun, it's a jobby (job/hobby);
+          </p>
+          <p> 
+            Currently pursuing my undergrad in CompSci at King’s;
+          </p>
+          <p> 
+            Looking for <span id="internship-highlight" > internships </span> in Python, AI/ML, Cloud, or SWE;
+          </p>
+        </div>
       </div>
     </div>
   </section>
-  <section id="projects" class="projects-section">
+  <div class="divider"></div>
+
+  <!-- CV Section moved up -->
+  <section class="resume-section">
+    <div class="resume-banner">
+      <div class="resume-decoration">
+        <div class="resume-dot"></div>
+        <div class="resume-line"></div>
+        <div class="resume-dot"></div>
+      </div>
+      <div class="resume-main-text">I've got</div>
+      <div class="resume-sub">
+        <span class="resume-title">My Resume</span>
+        <div class="resume-icon-wrapper">
+          <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.70006 9.52512C9.54006 9.52512 10.2151 8.85012 10.2151 8.01012C10.2151 7.17012 9.54006 6.49512 8.70006 6.49512C7.86006 6.49512 7.18506 7.17012 7.18506 8.01012C7.18506 8.85012 7.86006 9.52512 8.70006 9.52512Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.745 12.8252C11.745 11.2052 10.38 10.0352 8.7 10.0352C7.02 10.0352 5.655 11.2052 5.655 12.8252V13.5902C5.655 13.7252 5.715 13.8602 5.805 13.9502C5.895 14.0402 6.03 14.1002 6.165 14.1002H11.235C11.37 14.1002 11.505 14.0402 11.595 13.9502C11.685 13.8602 11.745 13.7252 11.745 13.5902V12.8252ZM5.625 17.2502C5.625 16.9518 5.74353 16.6656 5.9545 16.4547C6.16548 16.2437 6.45163 16.1252 6.75 16.1252H17.25C17.5484 16.1252 17.8345 16.2437 18.0455 16.4547C18.2565 16.6656 18.375 16.9518 18.375 17.2502C18.375 17.5485 18.2565 17.8347 18.0455 18.0457C17.8345 18.2566 17.5484 18.3752 17.25 18.3752H6.75C6.45163 18.3752 6.16548 18.2566 5.9545 18.0457C5.74353 17.8347 5.625 17.5485 5.625 17.2502ZM5.625 21.7502C5.625 21.4518 5.74353 21.1656 5.9545 20.9547C6.16548 20.7437 6.45163 20.6252 6.75 20.6252H17.25C17.5484 20.6252 17.8345 20.7437 18.0455 20.9547C18.2565 21.1656 18.375 21.4518 18.375 21.7502C18.375 22.0485 18.2565 22.3347 18.0455 22.5457C17.8345 22.7566 17.5484 22.8752 17.25 22.8752H6.75C6.45163 22.8752 6.16548 22.7566 5.9545 22.5457C5.74353 22.3347 5.625 22.0485 5.625 21.7502Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.75 3.75C0.75 2.097 2.097 0.75 3.75 0.75H13.785C14.628 0.75 15.423 1.107 15.9825 1.6965L15.9915 1.707L22.4595 8.76C22.998 9.3345 23.25 10.086 23.25 10.8V26.25C23.25 27.903 21.903 29.25 20.25 29.25H3.75C2.097 29.25 0.75 27.903 0.75 26.25V3.75ZM13.7835 3.75H3.75V26.25H20.25V10.788L13.806 3.7605L13.8015 3.759L13.7835 3.75Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9875 0.75C14.3191 0.75 14.637 1.2567 14.8714 1.49112C15.1059 1.72554 15.2375 2.04348 15.2375 2.375V8.25H20.625C20.7892 8.25 20.9517 8.28233 21.1034 8.34515C21.2551 8.40797 21.3929 8.50004 21.5089 8.61612C21.625 8.73219 21.7171 8.86999 21.7799 9.02165C21.8427 9.1733 21.875 9.33585 21.875 9.5C21.875 9.66415 21.8427 9.8267 21.7799 9.97835C21.7171 10.13 21.625 10.2678 21.5089 10.3839C21.3929 10.5 21.2551 10.592 21.1034 10.6548C20.9517 10.7177 20.7892 10.75 20.625 10.75H13.9875C13.656 10.75 13.3381 10.6183 13.1037 10.3839C12.8692 10.1495 12.7375 9.83152 12.7375 9.5V2.375C12.7375 2.04348 12.8692 1.72554 13.1037 1.49112C13.3381 1.2567 13.656 1.125 13.9875 1.125Z" fill="black"/>
+          </svg>
+        </div>
+      </div>
+      <div class="resume-description">Ready to dive into my professional journey?</div>
+      <a href="assets/Aarohan_Niraula_Resume.pdf" target="_blank" class="resume-view-btn">
+        <span>View Resume</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+  
+  <section id="projects" class="projects-preview">
     <div class="projects-intro left-align">
       <em>Here are some cool <span class="projects-highlight">projects</span> I've made</em>
     </div>
-    <div class="project-list">
-      <div class="project-item odd">
-        <div class="project-img">
-          <img src="assets/rhythmlizer.png" alt="Rhythmlizer Screenshot">
-        </div>
-        <div class="project-info align-right">
-          <h3>Rhythmlizer</h3>
-          <p>Rhythmlizer is a music visualizer built on Python with six unique elementals</p>
-          <p class="project-desc">It was built as my capstone project for <a href="https://certificates.cs50.io/17039f36-8e25-4f34-b7e3-90e243bd4f01.pdf?size=letter" target="_blank">Harvard's CS50P programme!</a></p>
-          <div class="project-links">
-              <a href="https://github.com/heyitsR1/rhymlizer" target="_blank"class="svg-link" title="GitHub">
-                  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="github-svg">
-                      <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/watch?v=ku2HHsIalDY&ab_channel=AarohanNiraula"target="_blank" class="svg-link" title="YouTube">
-                  <svg width="32" height="32" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="youtube-svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5 11.9312C31.0759 11.9312 27.0825 12.0117 23.1897 12.1209L23.0316 12.1267C19.0699 12.2388 15.8729 12.3279 13.3544 12.7448C10.7295 13.1789 8.55025 14.0098 6.808 15.8009C5.06 17.5978 4.29812 19.8202 3.93875 22.4795C3.59375 25.0383 3.59375 28.2813 3.59375 32.312V36.6935C3.59375 40.7185 3.59375 43.9615 3.93875 46.5232C4.29525 49.1825 5.06 51.4049 6.808 53.2018C8.55025 54.9958 10.7295 55.8238 13.3544 56.2579C15.8729 56.6748 19.0699 56.7639 23.0316 56.876L23.1897 56.8818C27.0854 56.991 31.0759 57.0715 34.5 57.0715C37.9241 57.0715 41.9175 56.991 45.8102 56.8818L45.9684 56.876C49.9301 56.7639 53.1271 56.6748 55.6456 56.2579C58.2705 55.8238 60.4497 54.9929 62.192 53.2018C63.94 51.4049 64.7047 49.1825 65.0612 46.5232C65.4062 43.9644 65.4062 40.7214 65.4062 36.6907V32.3092C65.4062 28.2813 65.4062 25.0383 65.0612 22.4795C64.7047 19.8202 63.94 17.5978 62.192 15.8009C60.4497 14.0069 58.2705 13.1789 55.6456 12.7448C53.1271 12.3279 49.9301 12.2388 45.9655 12.1267L45.8102 12.1209C42.0412 12.0065 38.2708 11.9432 34.5 11.9312ZM31.257 42.1215C30.9291 42.3088 30.5578 42.4067 30.1802 42.4054C29.8026 42.4042 29.432 42.3038 29.1054 42.1143C28.7788 41.9248 28.5077 41.6528 28.3191 41.3256C28.1306 40.9984 28.0314 40.6275 28.0312 40.2499V28.7499C28.0314 28.3723 28.1306 28.0014 28.3191 27.6742C28.5077 27.347 28.7788 27.075 29.1054 26.8855C29.432 26.696 29.8026 26.5956 30.1802 26.5944C30.5578 26.5931 30.9291 26.691 31.257 26.8783L41.3195 32.6283C41.6493 32.8169 41.9234 33.0894 42.114 33.4181C42.3046 33.7467 42.405 34.12 42.405 34.4999C42.405 34.8799 42.3046 35.2531 42.114 35.5817C41.9234 35.9104 41.6493 36.1829 41.3195 36.3715L31.257 42.1215Z" fill="#E6E6E6"/>
-                  </svg>
-                </a>
+    
+    <!-- Home Page Carousel -->
+    <div class="home-carousel">
+      <!-- <button class="carousel-btn carousel-prev" onclick="changeHomeSlide(-1)">‹</button> -->
+      <div class="carousel-btn carousel-prev" onclick="changeHomeSlide(-1)">
+        <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.2557 18.4937L8.00253 37.6509C7.69782 37.9706 7.52783 38.3952 7.52783 38.8369C7.52783 39.2785 7.69782 39.7031 8.00253 40.0228L8.02316 40.0434C8.17088 40.1989 8.34869 40.3227 8.54577 40.4073C8.74285 40.4919 8.95509 40.5356 9.16957 40.5356C9.38404 40.5356 9.59628 40.4919 9.79336 40.4073C9.99044 40.3227 10.1683 40.1989 10.316 40.0434L27.5035 22.0034L44.6841 40.0434C44.8318 40.1989 45.0096 40.3227 45.2067 40.4073C45.4038 40.4919 45.616 40.5356 45.8305 40.5356C46.045 40.5356 46.2572 40.4919 46.4543 40.4073C46.6514 40.3227 46.8292 40.1989 46.9769 40.0434L46.9975 40.0228C47.3023 39.7031 47.4722 39.2785 47.4722 38.8369C47.4722 38.3952 47.3023 37.9706 46.9975 37.6509L28.7444 18.4937C28.5839 18.3252 28.3908 18.1911 28.1769 18.0995C27.963 18.0078 27.7327 17.9606 27.5 17.9606C27.2673 17.9606 27.037 18.0078 26.8231 18.0995C26.6092 18.1911 26.4162 18.3252 26.2557 18.4937Z" fill="#E6E6E6"/>
+        </svg>
+      </div>
+      <div class="carousel-container">
+        <div class="carousel-track" id="home-carousel-track">
+          <div class="project-preview-card">
+            <img src="assets/Glasswave.png" alt="GlassWave">
+            <h3>GlassWave</h3>
+            <p>Audio Player</p>
+          </div>
+          <div class="project-preview-card">
+            <img src="assets/rhythmlizer.png" alt="Rhythmlizer">
+            <h3>Rhythmlizer</h3>
+            <p>Music visualizer</p>
+          </div>
+          <div class="project-preview-card">
+            <img src="assets/sabda.png" alt="Sabda">
+            <h3>Sabda</h3>
+            <p>Web-based word game</p>
+          </div>
+          <div class="project-preview-card">
+            <img src="assets/Invisible_by_AWS.png" alt="Invisible VPN">
+            <h3>Invisible VPN</h3>
+            <p>AWS Hosted VPN</p>
+          </div>
+          <div class="project-preview-card">
+            <img src="assets/TitanicSurvivor.png" alt="Titanic Survivor">
+            <h3>Titanic Survivor</h3>
+            <p>ML prediction app</p>
           </div>
         </div>
       </div>
-      <div class="project-divider"></div>
-      <div class="project-item even">
-          <div class="project-img">
-            <img src="assets/sabda.png" alt="Sabda Screenshot">
-          </div>
-
-        <div class="project-info align-left">
-          <h3>Sabda: The Word Game</h3>
-          <p>Sabda is a web-based word-guesser built on HTML, Python, and Flask</p>
-          <p class="project-desc">It was built as my capstone project for <a href="https://certificates.cs50.io/241d5f82-ce40-427b-b715-a1e154226024.pdf?size=letter" target="_blank">Harvard's CS50X programme!</a></p>
-          <div class="project-links">
-            <a href="https://github.com/heyitsR1/sabda/tree/main/my_project"  target="_blank"class="svg-link" title="GitHub">
-              <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="github-svg">
-                <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
-              </svg>
-            </a>
-            <a href="https://www.youtube.com/watch?v=S1t3s2EGOq4&ab_channel=AarohanNiraula"  target ="_blank" class="svg-link" title="YouTube">
-              <svg width="32" height="32" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="youtube-svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5 11.9312C31.0759 11.9312 27.0825 12.0117 23.1897 12.1209L23.0316 12.1267C19.0699 12.2388 15.8729 12.3279 13.3544 12.7448C10.7295 13.1789 8.55025 14.0098 6.808 15.8009C5.06 17.5978 4.29812 19.8202 3.93875 22.4795C3.59375 25.0383 3.59375 28.2813 3.59375 32.312V36.6935C3.59375 40.7185 3.59375 43.9615 3.93875 46.5232C4.29525 49.1825 5.06 51.4049 6.808 53.2018C8.55025 54.9958 10.7295 55.8238 13.3544 56.2579C15.8729 56.6748 19.0699 56.7639 23.0316 56.876L23.1897 56.8818C27.0854 56.991 31.0759 57.0715 34.5 57.0715C37.9241 57.0715 41.9175 56.991 45.8102 56.8818L45.9684 56.876C49.9301 56.7639 53.1271 56.6748 55.6456 56.2579C58.2705 55.8238 60.4497 54.9929 62.192 53.2018C63.94 51.4049 64.7047 49.1825 65.0612 46.5232C65.4062 43.9644 65.4062 40.7214 65.4062 36.6907V32.3092C65.4062 28.2813 65.4062 25.0383 65.0612 22.4795C64.7047 19.8202 63.94 17.5978 62.192 15.8009C60.4497 14.0069 58.2705 13.1789 55.6456 12.7448C53.1271 12.3279 49.9301 12.2388 45.9655 12.1267L45.8102 12.1209C42.0412 12.0065 38.2708 11.9432 34.5 11.9312ZM31.257 42.1215C30.9291 42.3088 30.5578 42.4067 30.1802 42.4054C29.8026 42.4042 29.432 42.3038 29.1054 42.1143C28.7788 41.9248 28.5077 41.6528 28.3191 41.3256C28.1306 40.9984 28.0314 40.6275 28.0312 40.2499V28.7499C28.0314 28.3723 28.1306 28.0014 28.3191 27.6742C28.5077 27.347 28.7788 27.075 29.1054 26.8855C29.432 26.696 29.8026 26.5956 30.1802 26.5944C30.5578 26.5931 30.9291 26.691 31.257 26.8783L41.3195 32.6283C41.6493 32.8169 41.9234 33.0894 42.114 33.4181C42.3046 33.7467 42.405 34.12 42.405 34.4999C42.405 34.8799 42.3046 35.2531 42.114 35.5817C41.9234 35.9104 41.6493 36.1829 41.3195 36.3715L31.257 42.1215Z" fill="#E6E6E6"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>      
-      <div class="project-divider"></div>
-
-      <div class="project-item odd">
-        <div class="project-img">
-          <img src="assets/TitanicSurvivor.png" alt="TitanicSurvivor Screenshot">
-        </div>
-
-      <div class="project-info align-right">
-        <h3>Titanic Survivor</h3>
-        <p>A webapp built using Jupiter Notebook that uses ML to predict whether a passenger on the Titanic would survive</p>
-        <p class="project-desc">It was built as a workshop project for <a href="" target="_blank">King's Data200 programme!</a></p>
-        <div class="project-links">
-          <a href="https://github.com/heyitsR1/TitanicSurvivalPredictionApp"  target="_blank"class="svg-link" title="GitHub">
-            <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="github-svg">
-              <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
-            </svg>
-          </a>
-          <a href="https://r1-titanic.streamlit.app/" target="_blank"class="svg-link" title="Website">
-            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class = "website-svg">
-                <g clip-path="url(#clip0_145_362)">
-                <path d="M25 0C27.2949 0 29.5085 0.292969 31.6406 0.878906C33.7728 1.46484 35.7666 2.30306 37.6221 3.39355C39.4775 4.48405 41.1621 5.78613 42.6758 7.2998C44.1895 8.81348 45.4915 10.5062 46.582 12.3779C47.6725 14.2497 48.5107 16.2435 49.0967 18.3594C49.6826 20.4753 49.9837 22.6888 50 25C50 27.2949 49.707 29.5085 49.1211 31.6406C48.5352 33.7728 47.6969 35.7666 46.6064 37.6221C45.516 39.4775 44.2139 41.1621 42.7002 42.6758C41.1865 44.1895 39.4938 45.4915 37.6221 46.582C35.7503 47.6725 33.7565 48.5107 31.6406 49.0967C29.5247 49.6826 27.3112 49.9837 25 50C22.7051 50 20.4915 49.707 18.3594 49.1211C16.2272 48.5352 14.2334 47.6969 12.3779 46.6064C10.5225 45.516 8.83789 44.2139 7.32422 42.7002C5.81055 41.1865 4.50846 39.4938 3.41797 37.6221C2.32747 35.7503 1.48926 33.7646 0.90332 31.665C0.317383 29.5654 0.016276 27.3438 0 25C0 22.7051 0.292969 20.4915 0.878906 18.3594C1.46484 16.2272 2.30306 14.2334 3.39355 12.3779C4.48405 10.5225 5.78613 8.83789 7.2998 7.32422C8.81348 5.81055 10.5062 4.50846 12.3779 3.41797C14.2497 2.32747 16.2354 1.48926 18.335 0.90332C20.4346 0.317383 22.6562 0.016276 25 0ZM25 46.875C27.002 46.875 28.9307 46.6146 30.7861 46.0938C32.6416 45.5729 34.3831 44.8405 36.0107 43.8965C37.6383 42.9525 39.1195 41.805 40.4541 40.4541C41.7887 39.1032 42.9281 37.6302 43.8721 36.0352C44.8161 34.4401 45.5566 32.6986 46.0938 30.8105C46.6309 28.9225 46.8913 26.9857 46.875 25C46.875 22.998 46.6146 21.0693 46.0938 19.2139C45.5729 17.3584 44.8405 15.6169 43.8965 13.9893C42.9525 12.3617 41.805 10.8805 40.4541 9.5459C39.1032 8.21126 37.6302 7.07194 36.0352 6.12793C34.4401 5.18392 32.6986 4.44336 30.8105 3.90625C28.9225 3.36914 26.9857 3.10872 25 3.125C22.998 3.125 21.0693 3.38542 19.2139 3.90625C17.3584 4.42708 15.6169 5.15951 13.9893 6.10352C12.3617 7.04753 10.8805 8.19499 9.5459 9.5459C8.21126 10.8968 7.07194 12.3698 6.12793 13.9648C5.18392 15.5599 4.44336 17.3014 3.90625 19.1895C3.36914 21.0775 3.10872 23.0143 3.125 25C3.125 27.002 3.38542 28.9307 3.90625 30.7861C4.42708 32.6416 5.15951 34.3831 6.10352 36.0107C7.04753 37.6383 8.19499 39.1195 9.5459 40.4541C10.8968 41.7887 12.3698 42.9281 13.9648 43.8721C15.5599 44.8161 17.3014 45.5566 19.1895 46.0938C21.0775 46.6309 23.0143 46.8913 25 46.875ZM39.5752 25.3906L40.7471 21.875H42.5781L40.5029 28.125H38.6719L37.5 24.6094L36.3281 28.125H34.4971L32.4219 21.875H34.2529L35.4248 25.3906L36.5967 21.875H38.4033L39.5752 25.3906ZM28.2471 21.875H30.0781L28.0029 28.125H26.1719L25 24.6094L23.8281 28.125H21.9971L19.9219 21.875H21.7529L22.9248 25.3906L24.0967 21.875H25.9033L27.0752 25.3906L28.2471 21.875ZM15.7471 21.875H17.5781L15.5029 28.125H13.6719L12.5 24.6094L11.3281 28.125H9.49707L7.42188 21.875H9.25293L10.4248 25.3906L11.5967 21.875H13.4033L14.5752 25.3906L15.7471 21.875Z" fill="#E6E6E6"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_145_362">
-                <rect width="50" height="50" fill="white"/>
-                </clipPath>
-                </defs>
-                </svg>
-                </a>
-        </div>
+      <div class="carousel-btn carousel-next" onclick="changeHomeSlide(1)">
+        <svg width="55" height="55" viewBox="0 0 55 55" fill="black" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.2557 18.4937L8.00253 37.6509C7.69782 37.9706 7.52783 38.3952 7.52783 38.8369C7.52783 39.2785 7.69782 39.7031 8.00253 40.0228L8.02316 40.0434C8.17088 40.1989 8.34869 40.3227 8.54577 40.4073C8.74285 40.4919 8.95509 40.5356 9.16957 40.5356C9.38404 40.5356 9.59628 40.4919 9.79336 40.4073C9.99044 40.3227 10.1683 40.1989 10.316 40.0434L27.5035 22.0034L44.6841 40.0434C44.8318 40.1989 45.0096 40.3227 45.2067 40.4073C45.4038 40.4919 45.616 40.5356 45.8305 40.5356C46.045 40.5356 46.2572 40.4919 46.4543 40.4073C46.6514 40.3227 46.8292 40.1989 46.9769 40.0434L46.9975 40.0228C47.3023 39.7031 47.4722 39.2785 47.4722 38.8369C47.4722 38.3952 47.3023 37.9706 46.9975 37.6509L28.7444 18.4937C28.5839 18.3252 28.3908 18.1911 28.1769 18.0995C27.963 18.0078 27.7327 17.9606 27.5 17.9606C27.2673 17.9606 27.037 18.0078 26.8231 18.0995C26.6092 18.1911 26.4162 18.3252 26.2557 18.4937Z" fill="#E6E6E6"/>
+        </svg>
       </div>
-    </div>
-    <div class="project-divider"></div>
-      <div class="project-item even">
-        <div class="project-img">
-          <img src="assets/chatty.png" alt="Chatty Screenshot">
-        </div>
-        <div class="project-info align-left">
-          <h3>Chatty: The Nice Bot</h3>
-          <p>Chatty is a conversation bot made in C++ using the Anthropic API and TTS integration</p>
-          <p class="project-desc">It was built as my capstone project for <a href="#" target="_blank"> King's OOP210 programme!</a></p>
-          <div class="project-links">
-            <a href="https://github.com/heyitsR1/chatty" target="_blank" class="svg-link" title="GitHub">
-              <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="github-svg">
-                <path d="M35 5.83325C31.1698 5.83325 27.377 6.58767 23.8384 8.05343C20.2997 9.51919 17.0844 11.6676 14.376 14.376C8.90622 19.8458 5.83331 27.2644 5.83331 34.9999C5.83331 47.8916 14.2041 58.8291 25.7833 62.7082C27.2416 62.9416 27.7083 62.0374 27.7083 61.2499V56.3207C19.6291 58.0707 17.9083 52.4124 17.9083 52.4124C16.5666 49.0291 14.6708 48.1249 14.6708 48.1249C12.0166 46.3166 14.875 46.3749 14.875 46.3749C17.7916 46.5791 19.3375 49.3791 19.3375 49.3791C21.875 53.8124 26.1625 52.4999 27.825 51.7999C28.0875 49.9041 28.8458 48.6208 29.6625 47.8916C23.1875 47.1624 16.3916 44.6541 16.3916 33.5416C16.3916 30.3041 17.5 27.7083 19.3958 25.6374C19.1041 24.9083 18.0833 21.8749 19.6875 17.9374C19.6875 17.9374 22.1375 17.1499 27.7083 20.9124C30.0125 20.2708 32.5208 19.9499 35 19.9499C37.4791 19.9499 39.9875 20.2708 42.2916 20.9124C47.8625 17.1499 50.3125 17.9374 50.3125 17.9374C51.9166 21.8749 50.8958 24.9083 50.6041 25.6374C52.5 27.7083 53.6083 30.3041 53.6083 33.5416C53.6083 44.6833 46.7833 47.1332 40.2791 47.8624C41.3291 48.7666 42.2916 50.5457 42.2916 53.2583V61.2499C42.2916 62.0374 42.7583 62.9707 44.2458 62.7082C55.825 58.7999 64.1666 47.8916 64.1666 34.9999C64.1666 31.1697 63.4122 27.377 61.9465 23.8383C60.4807 20.2997 58.3323 17.0843 55.6239 14.376C52.9156 11.6676 49.7002 9.51919 46.1616 8.05343C42.6229 6.58767 38.8302 5.83325 35 5.83325Z" fill="#E6E6E6"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+      <!-- <button class="carousel-btn carousel-next" onclick="changeHomeSlide(1)">›</button> -->
     </div>      
-    <div class="browse-more-wrapper right-align">
-      <a href="https://github.com/heyitsR1/" target="_blank" class="browse-more-btn">
-        <span>Browse More</span>
+    
+    <div class="browse-more-wrapper center-align">
+      <a href="projects.html" class="browse-more-btn">
+        <span>View Projects</span>
         <span class="arrow">→</span>
       </a>
     </div>
     <div class="projects-divider"></div>
     <div class="divider"></div>
-
   </section>
   <section id="skills" class="skills-section">
     <div class="skills-intro left-align">
-      <em>Here's some <span class="skills-highlight">stuff</span> I dabble in</em>
+      <em>Here's some <span class="projects-highlight">stuff</span> I dabble in</em>
     </div>
           <div class="skills-grid">
         <div class="skill-category">
@@ -224,35 +226,6 @@
   </section>
   <div class="projects-divider"></div>
   <div class="divider"></div>
-
-  <section class="resume-section">
-    <div class="resume-banner">
-      <div class="resume-decoration">
-        <div class="resume-dot"></div>
-        <div class="resume-line"></div>
-        <div class="resume-dot"></div>
-      </div>
-      <div class="resume-main-text">I've got</div>
-      <div class="resume-sub">
-        <span class="resume-title">My Resume</span>
-        <div class="resume-icon-wrapper">
-          <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.70006 9.52512C9.54006 9.52512 10.2151 8.85012 10.2151 8.01012C10.2151 7.17012 9.54006 6.49512 8.70006 6.49512C7.86006 6.49512 7.18506 7.17012 7.18506 8.01012C7.18506 8.85012 7.86006 9.52512 8.70006 9.52512Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.745 12.8252C11.745 11.2052 10.38 10.0352 8.7 10.0352C7.02 10.0352 5.655 11.2052 5.655 12.8252V13.5902C5.655 13.7252 5.715 13.8602 5.805 13.9502C5.895 14.0402 6.03 14.1002 6.165 14.1002H11.235C11.37 14.1002 11.505 14.0402 11.595 13.9502C11.685 13.8602 11.745 13.7252 11.745 13.5902V12.8252ZM5.625 17.2502C5.625 16.9518 5.74353 16.6656 5.9545 16.4547C6.16548 16.2437 6.45163 16.1252 6.75 16.1252H17.25C17.5484 16.1252 17.8345 16.2437 18.0455 16.4547C18.2565 16.6656 18.375 16.9518 18.375 17.2502C18.375 17.5485 18.2565 17.8347 18.0455 18.0457C17.8345 18.2566 17.5484 18.3752 17.25 18.3752H6.75C6.45163 18.3752 6.16548 18.2566 5.9545 18.0457C5.74353 17.8347 5.625 17.5485 5.625 17.2502ZM5.625 21.7502C5.625 21.4518 5.74353 21.1656 5.9545 20.9547C6.16548 20.7437 6.45163 20.6252 6.75 20.6252H17.25C17.5484 20.6252 17.8345 20.7437 18.0455 20.9547C18.2565 21.1656 18.375 21.4518 18.375 21.7502C18.375 22.0485 18.2565 22.3347 18.0455 22.5457C17.8345 22.7566 17.5484 22.8752 17.25 22.8752H6.75C6.45163 22.8752 6.16548 22.7566 5.9545 22.5457C5.74353 22.3347 5.625 22.0485 5.625 21.7502Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.75 3.75C0.75 2.097 2.097 0.75 3.75 0.75H13.785C14.628 0.75 15.423 1.107 15.9825 1.6965L15.9915 1.707L22.4595 8.76C22.998 9.3345 23.25 10.086 23.25 10.8V26.25C23.25 27.903 21.903 29.25 20.25 29.25H3.75C2.097 29.25 0.75 27.903 0.75 26.25V3.75ZM13.7835 3.75H3.75V26.25H20.25V10.788L13.806 3.7605L13.8015 3.759L13.7835 3.75Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9875 0.75C14.3191 0.75 14.637 1.2567 14.8714 1.49112C15.1059 1.72554 15.2375 2.04348 15.2375 2.375V8.25H20.625C20.7892 8.25 20.9517 8.28233 21.1034 8.34515C21.2551 8.40797 21.3929 8.50004 21.5089 8.61612C21.625 8.73219 21.7171 8.86999 21.7799 9.02165C21.8427 9.1733 21.875 9.33585 21.875 9.5C21.875 9.66415 21.8427 9.8267 21.7799 9.97835C21.7171 10.13 21.625 10.2678 21.5089 10.3839C21.3929 10.5 21.2551 10.592 21.1034 10.6548C20.9517 10.7177 20.7892 10.75 20.625 10.75H13.9875C13.656 10.75 13.3381 10.6183 13.1037 10.3839C12.8692 10.1495 12.7375 9.83152 12.7375 9.5V2.375C12.7375 2.04348 12.8692 1.72554 13.1037 1.49112C13.3381 1.2567 13.656 1.125 13.9875 1.125Z" fill="black"/>
-          </svg>
-        </div>
-      </div>
-      <div class="resume-description">Ready to dive into my professional journey?</div>
-      <a href="assets/Aarohan_Niraula_Resume.pdf" target="_blank" class="resume-view-btn">
-        <span>View Resume</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-  </section>
   <section id = "work" class="work-section">
     <div class="work-intro left-align">
       <em>Here my professional <span class="work-highlight">work experience</span> so far</em>
@@ -263,7 +236,7 @@
           <img src="assets/gadgetbyte.png" alt="Gadgetbyte Logo" class="work-logo">
           <div class="work-meta">
             <div class="work-title">Gadgetbyte</div>
-            <div class="work-role">Consumer Tech Reviewer & Writer</div>
+            <div class="work-role">Tech Reviewer & Writer</div>
             <div class="work-tenure">[April 2023 - April 2025]</div>
             <div class="work-links">
               <a href="https://www.youtube.com/@GadgetByte" target="_blank"class="svg-link" title="YouTube">
@@ -313,12 +286,12 @@
       <div class="work-divider"></div>
       <div class="work-item">
         <div class="work-company">
-          <!-- <img src="assets/tailsgate.png" alt="Tailsgate Logo" class="work-logo"> -->
-          <img src="https://ekthal.up.railway.app/static/plate.png" alt="Tailsgate Logo" class="work-logo">
+          <img src="assets/tailsgate.png" alt="Tailsgate Logo" class="work-logo">
+          <!-- <img src="https://ekthal.up.railway.app/static/plate.png" alt="Tailsgate Logo" class="work-logo"> -->
           <div class="work-meta">
-            <div class="work-title">EkThal Solutions</div>
+            <div class="work-title">Tailsgate Solutions</div>
             <div class="work-role">Co-Founder / CTO</div>
-            <div class="work-tenure">[July 2025 - Present]</div>
+            <div class="work-tenure">[Dec 2025 - Present]</div>
             <div class="work-links">
               <a href="https://ekthal.up.railway.app/" target="_blank" class="svg-link" title="Website">                <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class = "website-svg">
                 <g clip-path="url(#clip0_145_362)">
@@ -338,7 +311,7 @@
   </section>
   <section class="quote-section">
     <div class="quote-bg">
-      <blockquote class="nepali-quote">"उदेश्य के लिनु? उडी छुनु चन्द्र एक"</blockquote>
+      <blockquote class="nepali-quote">" उदेश्य के लिनु? उडी छुनु चन्द्र एक "</blockquote>
     </div>
   </section>
   <section class="about-section" id="About">
@@ -367,12 +340,19 @@
       </filter>
       </defs>
     </svg>
-    <div class="about-row-container">
+    <div id ="contact" class="about-row-container">
       <div class="about-visuals-row2">
         <a href = "https://www.youtube.com/watch?v=ZtOIXfUxJp8&ab_channel=A%C3%A0rohan" target = "_blank" > <img src="assets/blog.png" alt="Blog Card" class="about-blog-card"></a>
         <div class="about-writing">
           <br>
-          <p>I also like to write, just mundane things that aren't revolutionizing the world any time soon!<br><br>Starting a blog would be right up my alley, unfortunately, I haven't quite got around to it yet.<br><br>It'd probably not be very good anyway..hahaha...</p>
+          <br>                                
+          <p>I also like to write, just mundane things that aren't revolutionizing the world any time soon!<br><br>Here's my <a href = "blog.html">blog</a> if you're interested </p>
+          Here's my Youtube <a href="https://www.youtube.com/@dev.aarohan" target="_blank"class="yt-link" title="YouTube">
+            <svg width="32" height="32" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="youtube-svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5 11.9312C31.0759 11.9312 27.0825 12.0117 23.1897 12.1209L23.0316 12.1267C19.0699 12.2388 15.8729 12.3279 13.3544 12.7448C10.7295 13.1789 8.55025 14.0098 6.808 15.8009C5.06 17.5978 4.29812 19.8202 3.93875 22.4795C3.59375 25.0383 3.59375 28.2813 3.59375 32.312V36.6935C3.59375 40.7185 3.59375 43.9615 3.93875 46.5232C4.29525 49.1825 5.06 51.4049 6.808 53.2018C8.55025 54.9958 10.7295 55.8238 13.3544 56.2579C15.8729 56.6748 19.0699 56.7639 23.0316 56.876L23.1897 56.8818C27.0854 56.991 31.0759 57.0715 34.5 57.0715C37.9241 57.0715 41.9175 56.991 45.8102 56.8818L45.9684 56.876C49.9301 56.7639 53.1271 56.6748 55.6456 56.2579C58.2705 55.8238 60.4497 54.9929 62.192 53.2018C63.94 51.4049 64.7047 49.1825 65.0612 46.5232C65.4062 43.9644 65.4062 40.7214 65.4062 36.6907V32.3092C65.4062 28.2813 65.4062 25.0383 65.0612 22.4795C64.7047 19.8202 63.94 17.5978 62.192 15.8009C60.4497 14.0069 58.2705 13.1789 55.6456 12.7448C53.1271 12.3279 49.9301 12.2388 45.9655 12.1267L45.8102 12.1209C42.0412 12.0065 38.2708 11.9432 34.5 11.9312ZM31.257 42.1215C30.9291 42.3088 30.5578 42.4067 30.1802 42.4054C29.8026 42.4042 29.432 42.3038 29.1054 42.1143C28.7788 41.9248 28.5077 41.6528 28.3191 41.3256C28.1306 40.9984 28.0314 40.6275 28.0312 40.2499V28.7499C28.0314 28.3723 28.1306 28.0014 28.3191 27.6742C28.5077 27.347 28.7788 27.075 29.1054 26.8855C29.432 26.696 29.8026 26.5956 30.1802 26.5944C30.5578 26.5931 30.9291 26.691 31.257 26.8783L41.3195 32.6283C41.6493 32.8169 41.9234 33.0894 42.114 33.4181C42.3046 33.7467 42.405 34.12 42.405 34.4999C42.405 34.8799 42.3046 35.2531 42.114 35.5817C41.9234 35.9104 41.6493 36.1829 41.3195 36.3715L31.257 42.1215Z" fill="#E6E6E6"/>
+              </svg></a> where I post demos and my journey
+          <p>Here's my <a href ="https://x.com/tech_aarohan" target ="_blank">X</a> where I post updates </p>
+          <p> Contact me directly below or checkout my socials </p> ⧬ 
         </div>
       </div>
     </div>
@@ -425,7 +405,6 @@
       <path d="M26.2557 18.4937L8.00253 37.6509C7.69782 37.9706 7.52783 38.3952 7.52783 38.8369C7.52783 39.2785 7.69782 39.7031 8.00253 40.0228L8.02316 40.0434C8.17088 40.1989 8.34869 40.3227 8.54577 40.4073C8.74285 40.4919 8.95509 40.5356 9.16957 40.5356C9.38404 40.5356 9.59628 40.4919 9.79336 40.4073C9.99044 40.3227 10.1683 40.1989 10.316 40.0434L27.5035 22.0034L44.6841 40.0434C44.8318 40.1989 45.0096 40.3227 45.2067 40.4073C45.4038 40.4919 45.616 40.5356 45.8305 40.5356C46.045 40.5356 46.2572 40.4919 46.4543 40.4073C46.6514 40.3227 46.8292 40.1989 46.9769 40.0434L46.9975 40.0228C47.3023 39.7031 47.4722 39.2785 47.4722 38.8369C47.4722 38.3952 47.3023 37.9706 46.9975 37.6509L28.7444 18.4937C28.5839 18.3252 28.3908 18.1911 28.1769 18.0995C27.963 18.0078 27.7327 17.9606 27.5 17.9606C27.2673 17.9606 27.037 18.0078 26.8231 18.0995C26.6092 18.1911 26.4162 18.3252 26.2557 18.4937Z" fill="#E6E6E6"/>
     </svg>
   </div>
-  <div class="footer">©r1 2025</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="/js/script.js"></script>
   <script src="/js/particles.js"></script>
