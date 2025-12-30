@@ -1,3 +1,7 @@
+
+section {
+  margin: 0;
+}
 /* ========== Navbar ========== */
 .navbar {
     display: flex;
@@ -234,7 +238,7 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .work-item:hover { transform: translateX(10px); box-shadow: -5px 0 20px rgba(244, 221, 23, 0.3); }
+  /* .work-item:hover { transform: translateX(10px); box-shadow: -5px 0 20px rgba(244, 221, 23, 0.3); } */
   .work-item::after { content: ''; position: absolute; left: -6px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #F4DD17 0%, #fff 100%); transform: scaleY(0); transition: transform 0.3s ease; transform-origin: bottom; }
   .work-item:hover::after { transform: scaleY(1); }
   .work-company { display: flex; align-items: center; gap: 1.2rem; }
@@ -246,7 +250,7 @@
   
   /* ========== Resume Section ========== */
   .resume-section { background: #D9D9D9; padding: 0 0 3rem 0; }
-  .resume-banner { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 0 3rem 0; border-bottom: 1px solid #eee; color: #000; }
+  .resume-banner { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 0 3rem 0; border-bottom: 0px solid #eee; color: #000; }
   .resume-main-text { font-size: 4.5rem; font-weight: 700; margin-bottom: 1.2rem; letter-spacing: 0.01em; }
   .resume-sub { display: flex; align-items: center; gap: 1rem; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
   .resume-download-btn { margin-top: 1.2rem; background: none; border: none; padding: 0.5rem; transition: background 0.2s; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
@@ -255,6 +259,34 @@
   .resume-download-btn:hover svg circle { fill: rgba(255,255,255,0.6); }
   .resume-download-btn:hover svg path { stroke: black; }
   
+  .resume-description {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.resume-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+/* .resume-view-btn:hover {
+  background: #222;
+}
+
+.resume-text {
+  line-height: 1;
+} */ */
+
   /* ========== Quote Section ========== */
   .quote-section { min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 3rem 0 2rem 0; width:100%;}
   .quote-bg { background-image: url('../assets/moon.png'); background-size: cover; background-position: center; height: 350px; display: flex; align-items: center; justify-content: center; border-radius: 10px; width: 100%;}
