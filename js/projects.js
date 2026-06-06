@@ -33,6 +33,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   `;
   document.head.appendChild(style);
+
+  // Handle hash on page load to expand and scroll to the project
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetCard = document.getElementById(targetId);
+    if (targetCard) {
+      const details = targetCard.querySelector('.project-details');
+      const expandBtn = targetCard.querySelector('.project-expand-btn');
+      if (details && expandBtn) {
+        details.style.display = 'block';
+        expandBtn.innerHTML = 'Less Details ⌃';
+      }
+      
+      setTimeout(() => {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add a premium glow highlight effect
+        targetCard.style.boxShadow = '0 0 30px rgba(244, 221, 23, 0.4)';
+        targetCard.style.borderColor = '#F4DD17';
+        targetCard.style.transform = 'translateY(-5px)';
+        
+        setTimeout(() => {
+          targetCard.style.boxShadow = '';
+          targetCard.style.borderColor = '';
+          targetCard.style.transform = '';
+        }, 2500);
+      }, 600);
+    }
+  }
 });
 
 // Project details expansion functionality
