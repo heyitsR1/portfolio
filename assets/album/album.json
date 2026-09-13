@@ -1,7 +1,72 @@
 [
   {
-    "file": "marigold-tea.jpg",
-    "caption": "tea in a marigold field, dashain",
-    "date": "2023"
+    "file": "2026-08-gym.jpg",
+    "caption": "the other kind of training",
+    "date": "aug 2026"
+  },
+  {
+    "file": "2026-08-peace.jpg",
+    "caption": "peace, mostly",
+    "date": "aug 2026"
+  },
+  {
+    "file": "smile.jpg",
+    "caption": "red seats, good mood",
+    "date": "jul 2026"
+  },
+  {
+    "file": "2026-07-mirror.jpg",
+    "caption": "mirror check",
+    "date": "jul 2026"
+  },
+  {
+    "file": "2026-07-library.jpg",
+    "caption": "the bug was a typo",
+    "date": "jul 2026"
+  },
+  {
+    "file": "2026-07-morning.jpg",
+    "caption": "7am, no coffee yet",
+    "date": "jul 2026"
+  },
+  {
+    "file": "2026-05-sunday.jpg",
+    "caption": "sunday mode",
+    "date": "may 2026"
+  },
+  {
+    "file": "2026-03-library.jpg",
+    "caption": "library, pretending to study",
+    "date": "mar 2026"
+  },
+  {
+    "file": "2026-02-classroom.jpg",
+    "caption": "first one in",
+    "date": "feb 2026"
+  },
+  {
+    "file": "2026-01-hood.jpg",
+    "caption": "hood up, glasses on",
+    "date": "jan 2026"
+  },
+  {
+    "file": "2025-12-beanie.jpg",
+    "caption": "past midnight, beanie on",
+    "date": "dec 2025"
+  },
+  {
+    "file": "2025-11-cap.jpg",
+    "caption": "cap on, class in five",
+    "date": "nov 2025"
+  },
+  {
+    "file": "2025-07-thinking.jpg",
+    "caption": "thinking face",
+    "date": "jul 2025"
+  },
+  {
+    "file": "2025-06-cafe.jpg",
+    "caption": "deep in thought, allegedly",
+    "date": "jun 2025"
   }
 ]
