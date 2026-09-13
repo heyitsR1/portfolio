@@ -1,76 +1,122 @@
-/* ========== Base & Global Styles ========== */
-* {
-    box-sizing: border-box;
-  }
-  html, body {
-    overflow-x: hidden;
-  }
-  
-  
-  html {
-    scroll-behavior: smooth;
-    width: 100%;
-    overflow-x: hidden;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='5' fill='yellow' /%3E%3C/svg%3E") 6 6, default;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Mono', monospace, 'Inter', sans-serif;
-    background: #000;
-    color: #fff;
-    min-height: 100vh;
-  }
-  
-  a:hover,
-  button:hover {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='rgba(255, 255, 255, 0.7)' /%3E%3C/svg%3E") 8 8, pointer;
-  }
-  
-  ::selection {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-  }
-  ::-moz-selection {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-  }
-  
-  /* ========== Custom Cursor ========== */
-  .custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(244, 221, 23, 0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
-    mix-blend-mode: difference;
-  }
-  
-  .custom-cursor.cursor-hover {
-    width: 40px;
-    height: 40px;
-    background: rgba(244, 221, 23, 0.6);
-  }
-  
-  .cursor-trail {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: rgba(244, 221, 23, 0.4);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease;
-  }
-  
-  .cursor-trail.trail-hover {
-    width: 12px;
-    height: 12px;
-    background: rgba(244, 221, 23, 0.6);
-  }
+/* ============================================================
+   r1 — base
+   black, a little yellow, mostly words.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --bg: #000000;
+  --ink: #ebe8e0;
+  --ink-2: #9a968c;
+  --ink-3: #5c5951;
+  --line: rgba(255, 255, 255, 0.10);
+  --line-2: rgba(255, 255, 255, 0.18);
+
+  --sun: #F4DD17;
+  --sun-dim: rgba(244, 221, 23, 0.55);
+  --sun-faint: rgba(244, 221, 23, 0.16);
+
+  --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --measure: 42rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  background: transparent; /* html carries the black; lets the fireflies canvas sit behind everything */
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--sun); color: #000; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { max-width: 100%; display: block; }
+
+button, input, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button { cursor: pointer; }
+
+/* prose links: thin underline, warms on hover */
+.u {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--ink-3);
+  transition: text-decoration-color 0.25s ease, color 0.25s ease;
+}
+.u:hover { text-decoration-color: var(--sun); color: #fff; }
+
+/* mono helper */
+.mono {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.muted { color: var(--ink-2); }
+.dim { color: var(--ink-3); }
+.sun { color: var(--sun); }
+
+/* the yellow full stop */
+.dot { color: var(--sun); }
+
+em { font-style: italic; }
+s { text-decoration-color: var(--sun-dim); }
+
+/* film grain — makes the black feel like night, not a screen */
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+  animation: grain 1.2s steps(6) infinite;
+}
+
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-3%, 2%); }
+  40%  { transform: translate(2%, -4%); }
+  60%  { transform: translate(-4%, -1%); }
+  80%  { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* leftovers from older pages — keep them out of sight */
+.scroll-progress-container, .hamburger-menu, #scroll-to-top { display: none !important; }

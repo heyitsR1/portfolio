@@ -16,6 +16,16 @@ This is the Figma design I started the project with:
 
 <img width="1651" alt="image" src="https://github.com/user-attachments/assets/5e8ecb59-30fd-408e-87da-132d6dd5be02" />
 
+## Writing and the album
+
+There's a small local tool for that, no dependencies beyond Python 3:
+
+```
+python3 desk/desk.py
+```
+
+It opens the desk at http://127.0.0.1:8484. Write in markdown, save (⌘S), publish (⌘⏎), then push. Posts live in `blog/posts/*.md`, photos in `assets/album/`, and the static pages are rebuilt on every save. `python3 desk/build.py` does just the rebuild.
+
 ## Technologies Used
 
 *   HTML
