@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>projects · r1</title>
-  <meta name="description" content="Things Aarohan (r1) has built: an x86 kernel, an AI tutor, browser tools, a World Cup predictor from the math up, and the older stuff.">
+  <meta name="description" content="Things Aarohan (r1) has built: an AI tutor, browser tools, a World Cup predictor from the math up, and the older stuff.">
   <link rel="stylesheet" href="css/1-base.css">
   <link rel="stylesheet" href="css/2-layout.css">
   <link rel="stylesheet" href="css/3-animations.css">
@@ -41,19 +41,6 @@
 
     <section class="wrap-wide">
 
-      <article class="entry text reveal" id="omen-os">
-        <div>
-          <h2>omen OS</h2>
-          <div class="tags">c · x86 · summer 2026 · with Bishesh Raut and Karan Tamang</div>
-          <p>A kernel written from scratch that boots on a virtual x86 PC. GRUB hands off to our own multiboot stub, then we bring up the GDT and IDT, remap the PIC, run a 100 Hz timer, talk to a PS/2 keyboard and mouse, manage physical memory and paging, hand out a kernel heap, switch between kernel threads by hand, preempt them round-robin, and run multiple processes in isolated address spaces. Everything in ring 0, 32-bit protected mode.</p>
-          <p>Type <span class="mono">make run</span> and you land at an <span class="mono">omen&gt;</span> prompt. Each shell command is a live demo of one of those pieces: <span class="mono">threads</span>, <span class="mono">sched</span>, <span class="mono">proc</span>, <span class="mono">mouse</span>. Final project for Operating Systems, and the most fun I've had in C.</p>
-          <div class="bits">multiboot · gdt / idt · paging · kmalloc · context switching · scheduler · cr3 isolation · shell</div>
-          <div class="go">
-            <a href="https://github.com/heyitsR1/os" target="_blank" rel="noopener">github ↗</a>
-          </div>
-        </div>
-      </article>
-
       <article class="entry text reveal" id="siksak">
         <div>
           <h2>SikSak</h2>
@@ -63,33 +50,6 @@
           <div class="bits">mentor persona · long-term memory · learning tools · agent loop</div>
           <div class="go">
             <a href="https://github.com/heyitsR1/siksak-ai_tutor" target="_blank" rel="noopener">github ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="entry reveal" id="chorus">
-        <div>
-          <h2>Chorus</h2>
-          <div class="tags">chrome extension · typescript · mit</div>
-          <p>Google Photos edits one photo at a time. Chorus applies the same edit to every photo you've selected: enhance, filter, crop, rotate, caption, or revert. It does this by driving Google's own editor, click by click, in your own browser. Nothing is uploaded and there's no account.</p>
-          <p>The interesting bit: the editor ignores synthetic DOM events, so Chorus talks to the Chrome DevTools Protocol and dispatches real mouse and keyboard input. A progress widget lets you pause, and a batch survives Chrome restarting.</p>
-          <div class="bits">devtools protocol · trusted input events · resumable batches</div>
-          <div class="go">
-            <a href="https://github.com/heyitsR1/chorus-google-photos" target="_blank" rel="noopener">github ↗</a>
-          </div>
-        </div>
-        <div class="shot"><img src="assets/projects/chorus.png" alt="Chorus bulk editor inside Google Photos" loading="lazy"></div>
-      </article>
-
-      <article class="entry text reveal" id="world-cup">
-        <div>
-          <h2>World Cup 2026 predictor</h2>
-          <div class="tags">numerical methods · python · westcliff bsit 400</div>
-          <p>Who wins the 2026 World Cup? A logistic regression trained on 49,000 international matches going back to 1872, then ten thousand Monte Carlo simulations of the tournament. No scikit-learn: the linear algebra is an LU solver, the regression is gradient descent, the decision threshold comes out of a Newton-Raphson root finder, and the features are ELO ratings computed from scratch.</p>
-          <p>Run <span class="mono">main.py</span> and it prints the top ten championship probabilities and saves the plots. Final project for Numerical Methods, and the reason I now actually understand what a solver does.</p>
-          <div class="bits">lu decomposition · gradient descent · newton-raphson · elo · monte carlo</div>
-          <div class="go">
-            <a href="https://github.com/heyitsR1/world-cup-winner-predictor" target="_blank" rel="noopener">github ↗</a>
           </div>
         </div>
       </article>
@@ -105,21 +65,6 @@
             <a href="https://chromewebstore.google.com/detail/claude-project-downloader/leinefcadopiegfdgjddoilofknckkgh" target="_blank" rel="noopener">web store ↗</a>
           </div>
         </div>
-      </article>
-
-      <article class="entry reveal" id="downloaders">
-        <div>
-          <h2>Skool &amp; Whop downloaders</h2>
-          <div class="tags">chrome extensions · shipped under tailsgate</div>
-          <p>Save course videos you already have access to as MP4, straight from the browser: Skool-native lessons plus Loom, Vimeo, Wistia and YouTube embeds, and Whop courses and PDFs. No server, nothing passes through anyone's machine but yours. The Web Store builds strip YouTube support to follow store rules; the full sideload builds live on GitHub.</p>
-          <div class="bits">media capture · local processing · store + sideload builds</div>
-          <div class="go">
-            <a href="https://github.com/heyitsR1/skool-video-downloader" target="_blank" rel="noopener">github ↗</a>
-            <a href="https://tailsgate.com/whop-downloader" target="_blank" rel="noopener">tailsgate.com ↗</a>
-            <a href="https://www.youtube.com/watch?v=MfELQ1Y3vv4" target="_blank" rel="noopener">demo ↗</a>
-          </div>
-        </div>
-        <div class="shot"><img src="assets/projects/skool.jpg" alt="Skool Video Downloader demo" loading="lazy"></div>
       </article>
 
       <article class="entry text reveal" id="unfollowers">
@@ -156,6 +101,19 @@
           </div>
         </div>
         <div class="shot"><img src="assets/projects/poison.png" alt="Poison bottle simulation output" loading="lazy"></div>
+      </article>
+
+      <article class="entry text reveal" id="world-cup">
+        <div>
+          <h2>World Cup 2026 predictor</h2>
+          <div class="tags">numerical methods · python · westcliff bsit 400</div>
+          <p>Who wins the 2026 World Cup? A logistic regression trained on 49,000 international matches going back to 1872, then ten thousand Monte Carlo simulations of the tournament. No scikit-learn: the linear algebra is an LU solver, the regression is gradient descent, the decision threshold comes out of a Newton-Raphson root finder, and the features are ELO ratings computed from scratch.</p>
+          <p>Run <span class="mono">main.py</span> and it prints the top ten championship probabilities and saves the plots. Final project for Numerical Methods, and the reason I now actually understand what a solver does.</p>
+          <div class="bits">lu decomposition · gradient descent · newton-raphson · elo · monte carlo</div>
+          <div class="go">
+            <a href="https://github.com/heyitsR1/world-cup-winner-predictor" target="_blank" rel="noopener">github ↗</a>
+          </div>
+        </div>
       </article>
 
       <article class="entry text reveal" id="spotify-similar">

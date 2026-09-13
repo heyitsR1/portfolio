@@ -228,6 +228,14 @@ a.row .name::after {
   margin-top: 0.5rem;
 }
 
+/* wide screens: let the note spill into the empty right margin so it can be bigger */
+@media (min-width: 1100px) {
+  .about {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    margin-right: -10rem;
+  }
+}
+
 /* ---------- contact ---------- */
 .say p { color: var(--ink-2); font-weight: 300; max-width: 30rem; }
 
