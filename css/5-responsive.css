@@ -28,6 +28,8 @@
 
   .moon { min-height: 54vh; }
 
+  .album { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+
   .sec { padding: 3.5rem 0; }
   .page-head { padding: 7rem 0 2rem; }
 }

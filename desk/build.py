@@ -301,7 +301,7 @@ def album_html(items):
     body = f'''    <header class="page-head">
       <div class="wrap-wide">
         <h1><span class="g">γ</span>album</h1>
-        <p>Mostly me. Desks, rivers, temples, the occasional gym. Newest first.</p>
+        <p>Mostly me. Desks, mirrors, mountains, the occasional gym. Newest first.</p>
       </div>
     </header>
 
