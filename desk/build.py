@@ -290,9 +290,10 @@ def album_html(items):
     for it in items:
         cap = html.escape(it.get("caption", ""))
         when = html.escape(it.get("date", ""))
+        # captions are optional; uncaptioned photos render bare
+        label = f'\n          <figcaption><span>{cap}</span><span>{when}</span></figcaption>' if cap else ''
         figs.append(f'''        <figure class="reveal">
-          <img src="assets/album/{html.escape(it["file"])}" alt="{cap}" loading="lazy">
-          <figcaption><span>{cap}</span><span>{when}</span></figcaption>
+          <img src="assets/album/{html.escape(it["file"])}" alt="{cap or "Aarohan"}" loading="lazy">{label}
         </figure>''')
     grid = f'''      <div class="album">
 {chr(10).join(figs)}
@@ -300,7 +301,7 @@ def album_html(items):
     body = f'''    <header class="page-head">
       <div class="wrap-wide">
         <h1><span class="g">γ</span>album</h1>
-        <p>Mostly me, mostly at a desk, occasionally the gym. Newest first.</p>
+        <p>Mostly me. Desks, rivers, temples, the occasional gym. Newest first.</p>
       </div>
     </header>
 

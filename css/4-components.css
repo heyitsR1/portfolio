@@ -464,6 +464,7 @@ a.row .name::after {
 }
 
 .album figcaption span:first-child { color: var(--ink-2); }
+.album figcaption span:last-child { white-space: nowrap; }
 
 .album-empty {
   color: var(--ink-2);
