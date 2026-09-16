@@ -455,7 +455,9 @@ a.row .name::after {
 .album .big        { grid-column: span 8;  grid-row: span 10; }  /* 4:5 at double size */
 .album .wide       { grid-column: span 8;  grid-row: span 6;  }  /* 4:3 landscape */
 .album .half       { grid-column: span 6;  grid-row: span 4;  }  /* 3:2, two to a row */
+.album .sq         { grid-column: span 4;  grid-row: span 4;  }  /* 1:1, three to a row */
 .album .duo        { grid-column: span 6;  grid-row: span 7;  }  /* 6:7, the closing pair */
+.album .pan        { grid-column: span 12; grid-row: span 7;  }  /* 12:7, a band of its own */
 
 .album figure {
   position: relative;

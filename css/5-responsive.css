@@ -45,6 +45,8 @@
   .album .big   { grid-column: span 6; grid-row: span 8; }  /* 3:4, full width */
   .album .wide  { grid-column: span 6; grid-row: span 5; }  /* 6:5, full width */
   .album .half  { grid-column: span 6; grid-row: span 4; }  /* 3:2, full width */
+  .album .sq    { grid-column: span 6; grid-row: span 6; }  /* 1:1, full width, uncropped */
+  .album .pan   { grid-column: span 6; grid-row: span 4; }  /* 3:2, full width */
 
   /* the builder promotes these so a run of half tiles never ends odd */
   .album .sm-wide { grid-column: span 6; grid-row: span 7; }

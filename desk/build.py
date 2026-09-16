@@ -287,7 +287,7 @@ def save_album(items):
 
 
 # tiles that take the full width once the mosaic drops to two columns
-FULL_SM = {"big", "wide", "half"}
+FULL_SM = {"big", "wide", "half", "sq", "pan"}
 
 
 def narrow_promotions(items):
@@ -319,10 +319,12 @@ def album_html(items):
         cls = " ".join(filter(None, ["reveal", html.escape(it.get("tile", "").strip()),
                                      "sm-wide" if i in promote else ""]))
         label = html.escape("Open photo: " + (it.get("caption") or it.get("alt") or "Aarohan"), quote=True)
+        meta = (f'\n            <span class="meta"><span class="cap">{cap}</span>'
+                f'<span class="when">{when}</span></span>') if (cap or when) else ""
         figs.append(f'''        <figure class="{cls}">
           <button class="shot" type="button" aria-label="{label}">
             <img src="assets/album/{html.escape(it["file"])}" alt="{alt}" loading="lazy" decoding="async">
-            <span class="meta"><span class="cap">{cap}</span><span class="when">{when}</span></span>
+{meta}
           </button>
         </figure>''')
 
@@ -339,7 +341,7 @@ def album_html(items):
     body = f'''    <header class="page-head">
       <div class="wrap-wide">
         <h1><span class="g">γ</span>album</h1>
-        <p>Mostly me. Desks, mirrors, mountains, the occasional gym. Newest first.</p>
+        <p>Mostly me. Desks, mirrors, mountains, the occasional gym. Roughly newest first.</p>
         <p class="mono dim album-count">{count} · click any to open</p>
       </div>
     </header>
