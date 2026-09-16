@@ -24,12 +24,24 @@ function reveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
   if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
   els.forEach(e => io.observe(e));
+
+  // a flick of the trackpad can carry a tall element clean past the observer's
+  // sample, and it would sit there invisible. sweep once the scrolling settles.
+  let t = null;
+  const sweep = () => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) { el.classList.add('in'); io.unobserve(el); }
+    });
+  };
+  window.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(sweep, 120); }, { passive: true });
 }
 
 /* a screenshot that follows the cursor over project rows */

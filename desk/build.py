@@ -179,7 +179,8 @@ def nav(active, up=""):
   </nav>'''
 
 
-def page(title, desc, active, body, up="", extra_foot=""):
+def page(title, desc, active, body, up="", extra_foot="", scripts=()):
+    extra_scripts = "".join(f'\n  <script src="{up}js/{s}"></script>' for s in scripts)
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,7 +213,7 @@ def page(title, desc, active, body, up="", extra_foot=""):
   </footer>
 
   <script src="{up}js/fireflies.js"></script>
-  <script src="{up}js/script.js"></script>
+  <script src="{up}js/script.js"></script>{extra_scripts}
 </body>
 </html>
 '''
@@ -285,23 +286,61 @@ def save_album(items):
     json.dump(items, open(ALBUM_JSON, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 
 
+# tiles that take the full width once the mosaic drops to two columns
+FULL_SM = {"big", "wide", "half"}
+
+
+def narrow_promotions(items):
+    """Narrow screens collapse the mosaic to two columns, with the big / wide /
+    half tiles going full width. A run of half-width tiles between two of those
+    has to be even or it leaves a gap — so the last tile of an odd run gets
+    promoted to full width as well, and the grid stays solid."""
+    promote, run = set(), []
+    for i, it in enumerate(list(items) + [{"tile": "big"}]):  # sentinel closes the last run
+        if it.get("tile", "").strip() in FULL_SM:
+            if len(run) % 2:
+                promote.add(run[-1])
+            run = []
+        else:
+            run.append(i)
+    return promote
+
+
 def album_html(items):
+    """The grid is an editorial mosaic: tiles come in a handful of sizes, and the
+    bands they form always add up to 12 columns so nothing leaves a hole.
+    'tile' in album.json picks the size — blank is the plain 4:5 portrait."""
     figs = []
-    for it in items:
+    promote = narrow_promotions(items)
+    for i, it in enumerate(items):
         cap = html.escape(it.get("caption", ""))
         when = html.escape(it.get("date", ""))
-        # captions are optional; uncaptioned photos render bare
-        label = f'\n          <figcaption><span>{cap}</span><span>{when}</span></figcaption>' if cap else ''
-        figs.append(f'''        <figure class="reveal">
-          <img src="assets/album/{html.escape(it["file"])}" alt="{cap or "Aarohan"}" loading="lazy">{label}
+        alt = html.escape(it.get("alt") or it.get("caption") or "Aarohan", quote=True)
+        cls = " ".join(filter(None, ["reveal", html.escape(it.get("tile", "").strip()),
+                                     "sm-wide" if i in promote else ""]))
+        label = html.escape("Open photo: " + (it.get("caption") or it.get("alt") or "Aarohan"), quote=True)
+        figs.append(f'''        <figure class="{cls}">
+          <button class="shot" type="button" aria-label="{label}">
+            <img src="assets/album/{html.escape(it["file"])}" alt="{alt}" loading="lazy" decoding="async">
+            <span class="meta"><span class="cap">{cap}</span><span class="when">{when}</span></span>
+          </button>
         </figure>''')
-    grid = f'''      <div class="album">
+
+    grid = f'''      <div class="album-wrap">
+        <div class="album">
 {chr(10).join(figs)}
+        </div>
       </div>''' if figs else '''      <p class="album-empty reveal">Nothing here yet. Photos go in <span class="mono">assets/album</span>, captions in <span class="mono">album.json</span>, or use the desk.</p>'''
+
+    # "24 frames · 2020 — 2026", read off the dates rather than kept in sync by hand
+    years = sorted(d.split()[-1] for d in (it.get("date", "") for it in items) if d.split() and d.split()[-1].isdigit())
+    count = f"{len(items)} frames · {years[0]} — {years[-1]}" if years else f"{len(items)} frames"
+
     body = f'''    <header class="page-head">
       <div class="wrap-wide">
         <h1><span class="g">γ</span>album</h1>
         <p>Mostly me. Desks, mirrors, mountains, the occasional gym. Newest first.</p>
+        <p class="mono dim album-count">{count} · click any to open</p>
       </div>
     </header>
 
@@ -309,7 +348,7 @@ def album_html(items):
 {grid}
     </section>'''
     return page("album · r1", "Photos from Aarohan's days off the keyboard.", "album", body,
-                extra_foot='<a href="index.html">home</a> · ')
+                extra_foot='<a href="index.html">home</a> · ', scripts=("album.js",))
 
 
 # ---------------------------------------------------------------------- build

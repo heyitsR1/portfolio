@@ -1,77 +1,34 @@
 [
-  {
-    "file": "2026-08-gym.jpg",
-    "caption": "",
-    "date": "aug 2026"
-  },
-  {
-    "file": "smile.jpg",
-    "caption": "",
-    "date": "jul 2026"
-  },
-  {
-    "file": "2026-07-mirror.jpg",
-    "caption": "",
-    "date": "jul 2026"
-  },
-  {
-    "file": "2026-03-library.jpg",
-    "caption": "",
-    "date": "mar 2026"
-  },
-  {
-    "file": "2025-12-mirror.jpg",
-    "caption": "",
-    "date": "dec 2025"
-  },
-  {
-    "file": "2025-11-profile.jpg",
-    "caption": "",
-    "date": "nov 2025"
-  },
-  {
-    "file": "2025-08-himalaya.jpg",
-    "caption": "",
-    "date": "aug 2025"
-  },
-  {
-    "file": "2025-07-thinking.jpg",
-    "caption": "",
-    "date": "jul 2025"
-  },
-  {
-    "file": "2024-10-camera.jpg",
-    "caption": "the other side of the lens",
-    "date": "oct 2024"
-  },
-  {
-    "file": "2024-08-shadow.jpg",
-    "caption": "",
-    "date": "aug 2024"
-  },
-  {
-    "file": "2024-02-vision-pro.jpg",
-    "caption": "tried on the future",
-    "date": "feb 2024"
-  },
-  {
-    "file": "2024-01-shades.jpg",
-    "caption": "",
-    "date": "jan 2024"
-  },
-  {
-    "file": "2023-concert.jpg",
-    "caption": "",
-    "date": "2023"
-  },
-  {
-    "file": "2020-11-suit.jpg",
-    "caption": "",
-    "date": "nov 2020"
-  },
-  {
-    "file": "childhood-psp.jpg",
-    "caption": "player one",
-    "date": "way back"
-  }
+  { "file": "2026-08-gym.jpg",         "tile": "",     "caption": "",                       "alt": "Aarohan in a gym mirror, black and white",                      "date": "aug 2026" },
+  { "file": "smile.jpg",               "tile": "",     "caption": "",                       "alt": "Aarohan grinning in a red cinema seat",                         "date": "jul 2026" },
+  { "file": "2026-07-mirror.jpg",      "tile": "",     "caption": "",                       "alt": "Mirror selfie, phone over half the face",                       "date": "jul 2026" },
+
+  { "file": "2026-01-shadows.jpg",     "tile": "big",  "caption": "five shadows, one hill",  "alt": "Five long shadows thrown across a dry hillside",                "date": "jan 2026" },
+  { "file": "2025-11-cap.jpg",         "tile": "",     "caption": "",                       "alt": "Mirror selfie in a worn adidas cap",                            "date": "nov 2025" },
+  { "file": "2025-11-profile.jpg",     "tile": "",     "caption": "",                       "alt": "Profile portrait in hard black and white",                      "date": "nov 2025" },
+
+  { "file": "2025-09-road.jpg",        "tile": "t6",   "caption": "",                       "alt": "A dirt road climbing into pines, mountains behind",             "date": "sep 2025" },
+  { "file": "2025-08-himalaya.jpg",    "tile": "t6",   "caption": "",                       "alt": "Aarohan reaching toward a Himalayan peak through the clouds",   "date": "aug 2025" },
+  { "file": "2025-08-gym-lights.jpg",  "tile": "t6",   "caption": "",                       "alt": "Aarohan from behind under the gym strip lights",                "date": "aug 2025" },
+
+  { "file": "2025-07-hackathon.jpg",   "tile": "wide", "caption": "everyone's screen on",    "alt": "Friends crowded around a table of open laptops at night",      "date": "jul 2025" },
+  { "file": "2025-07-gym-mirror.jpg",  "tile": "t6",   "caption": "",                       "alt": "Gym mirror selfie between the squat racks",                     "date": "jul 2025" },
+
+  { "file": "2025-07-thinking.jpg",    "tile": "",     "caption": "",                       "alt": "Aarohan mid-thought, chin on hand",                             "date": "jul 2025" },
+  { "file": "2024-12-red.jpg",         "tile": "big",  "caption": "loud sweater season",     "alt": "Head bowed against a red wall, patterned sweater",              "date": "dec 2024" },
+  { "file": "2024-11-couch.jpg",       "tile": "",     "caption": "standup, with co-worker", "alt": "Aarohan on a couch with a laptop and a sleeping dog",          "date": "nov 2024" },
+
+  { "file": "2024-12-closeup.jpg",     "tile": "half", "caption": "date-stamped",            "alt": "Close crop of a face in low sun, film date stamp in the corner","date": "dec 2024" },
+  { "file": "2024-12-pingpong.jpg",    "tile": "half", "caption": "serve",                   "alt": "Mid-serve at a ping pong table, black and white",               "date": "dec 2024" },
+
+  { "file": "2024-11-sparkler.jpg",    "tile": "",     "caption": "tihar",                   "alt": "Holding a lit sparkler against a string of festival lights",    "date": "nov 2024" },
+  { "file": "2024-10-camera.jpg",      "tile": "",     "caption": "the other side of the lens","alt": "Aarohan behind a cinema camera on a tripod",                  "date": "oct 2024" },
+  { "file": "2024-08-shadow.jpg",      "tile": "",     "caption": "",                       "alt": "Portrait half-lost to shadow, 'I DON'T CARE' tee",              "date": "aug 2024" },
+
+  { "file": "2024-02-vision-pro.jpg",  "tile": "",     "caption": "tried on the future",     "alt": "Aarohan wearing an Apple Vision Pro, half-smiling",             "date": "feb 2024" },
+  { "file": "2024-01-shades.jpg",      "tile": "",     "caption": "",                       "alt": "Flat-top sunglasses, hills behind",                             "date": "jan 2024" },
+  { "file": "2020-11-suit.jpg",        "tile": "",     "caption": "",                       "alt": "Younger Aarohan in a blue suit beside a stone Buddha",          "date": "nov 2020" },
+
+  { "file": "childhood-psp.jpg",       "tile": "duo",  "caption": "player one",              "alt": "A boy on a bed, lost in a handheld console",                    "date": "way back" },
+  { "file": "childhood-photo.jpg",     "tile": "duo",  "caption": "the first one of me",     "alt": "A hand holding an old print of a baby in a blue tub",           "date": "way back" }
 ]

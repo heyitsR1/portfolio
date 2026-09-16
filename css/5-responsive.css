@@ -28,8 +28,34 @@
 
   .moon { min-height: 54vh; }
 
-  .album { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-
   .sec { padding: 3.5rem 0; }
   .page-head { padding: 7rem 0 2rem; }
+}
+
+/* ---------- album mosaic on narrow screens ----------
+   six columns instead of twelve: every tile is either half width or full,
+   so the bands still tile with no holes. */
+@media (max-width: 900px) {
+  .album { --cols: 6; --gap: 0.7rem; }
+
+  .album figure,
+  .album .t6,
+  .album .duo   { grid-column: span 3; grid-row: span 4; }  /* 3:4, two to a row */
+
+  .album .big   { grid-column: span 6; grid-row: span 8; }  /* 3:4, full width */
+  .album .wide  { grid-column: span 6; grid-row: span 5; }  /* 6:5, full width */
+  .album .half  { grid-column: span 6; grid-row: span 4; }  /* 3:2, full width */
+
+  /* the builder promotes these so a run of half tiles never ends odd */
+  .album .sm-wide { grid-column: span 6; grid-row: span 7; }
+
+  .album .meta { padding: 1.6rem 0.6rem 0.55rem; font-size: 0.64rem; }
+}
+
+@media (max-width: 560px) {
+  .album { --gap: 0.5rem; }
+  .album .meta { opacity: 1; transform: none; }
+
+  .lb-prev, .lb-next { width: 2.6rem; height: 2.6rem; }
+  .lb img { max-height: calc(100vh - 11rem); }
 }
