@@ -632,3 +632,29 @@ body.lb-open { overflow: hidden; }
 .earlier .entry h2 { font-size: 1.3rem; color: var(--ink-2); }
 .earlier .entry p { font-size: 1rem; }
 .earlier .entry .shot { max-width: 12rem; }
+
+/* ---------- stuff page: the ledger ---------- */
+.page-head .tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  margin-top: 2rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+}
+
+.page-head .tally b { color: var(--sun); font-weight: 400; font-size: 1.05rem; margin-right: 0.3em; }
+
+.ledger .sec-head { margin-bottom: 1rem; }
+
+.ledger .lede {
+  color: var(--ink-2);
+  font-weight: 300;
+  max-width: 38rem;
+  margin-bottom: 1.6rem;
+}
+
+.ledger .row .meta { line-height: 1.7; }
+.ledger .row .earn { color: var(--sun-dim); }
+.ledger .row a.name:hover { color: #fff; }

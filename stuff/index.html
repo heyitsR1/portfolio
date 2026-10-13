@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stuff · r1</title>
+  <meta name="description" content="Everything Aarohan (r1) has shipped: Chrome extensions with thousands of users, the plumbing that bills for them, AI ad pipelines at work, and the experiments in between. What each one does, where it lives, and whether it ever made money.">
+  <link rel="stylesheet" href="../css/1-base.css">
+  <link rel="stylesheet" href="../css/2-layout.css">
+  <link rel="stylesheet" href="../css/3-animations.css">
+  <link rel="stylesheet" href="../css/4-components.css">
+  <link rel="stylesheet" href="../css/5-responsive.css">
+  <link rel="icon" type="image/png" href="../assets/favicon_3.png">
+</head>
+
+<body id="top">
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-home-link" aria-label="r1, home">
+        <span class="phi">φ</span>
+        <span class="r1">r1</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="../index.html" class="nav-greek" title="home">α</a>
+      <a href="../projects.html" class="nav-greek" title="projects">π</a>
+      <a href="../blog.html" class="nav-greek" title="writing">β</a>
+      <a href="../album.html" class="nav-greek" title="album">γ</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-head">
+      <div class="wrap-wide">
+        <h1><span class="g">Σ</span>stuff</h1>
+        <p>The whole ledger. Everything I've shipped, half-shipped, or keep running at work: what it does, where it lives, and the honest answer to "did it ever make money?" The <a class="u" href="../projects.html">projects page</a> has the long notes; this one has the receipts.</p>
+        <div class="tally reveal">
+          <span><b>10+</b> chrome extensions shipped</span>
+          <span><b>7k+</b> people using them</span>
+          <span><b>1</b> paying the bills right now</span>
+          <span><b>0</b> co-founders</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="sec ledger">
+      <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">ω</span> day job · creative strategy alchemy</div>
+        <p class="lede reveal">I'm the growth engineer, a.k.a. the AI guy, at a creative-strategy agency running paid social for DTC health and skincare brands. Shopify, CRO, and pipelines that make ads while everyone sleeps. Client names stay with the clients.</p>
+
+        <ul class="list">
+          <li class="row reveal">
+            <span class="name">Native ad pipeline</span>
+            <span class="desc">writes long-form advertorials end to end every night: angles, hooks, outline, draft, a QA score, generated images, then uploads them to Meta as paused ads for a human to approve. About ten drafts a run, hundreds so far, 300+ hooks across three brands</span>
+            <span class="meta">python · github actions · meta api<br><span class="earn">in production daily</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">ClickUp → Meta launcher</span>
+            <span class="desc">a strategist marks a ClickUp task "ready to launch" and it becomes an ad set: creatives from Drive, copy, landing page, guard rails so nothing ships half-filled. A media buyer reviews feed mock-ups and clicks launch. 500+ ad batches have gone through it</span>
+            <span class="meta">python · react · vercel<br><span class="earn">in production</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Shopify landers &amp; funnels</span>
+            <span class="desc">15+ landing pages, advertorials and product-page reworks across two brands, plus a quiz funnel that types your skin and sends you to the right serum</span>
+            <span class="meta">liquid · shopify cli · cro<br><span class="earn">live on client stores</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Strategist report</span>
+            <span class="desc">a weekly dashboard and Saturday email for the boss: briefs written against quota, six-week trend, how many launched and how many won</span>
+            <span class="meta">clickup api · vercel cron · resend<br><span class="earn">internal</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Review miner</span>
+            <span class="desc">a small extension that pulls a product's reviews by star rating into CSV, so customer research starts from what buyers actually say</span>
+            <span class="meta">chrome extension · python<br><span class="earn">internal</span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec ledger">
+      <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">λ</span> things people actually use</div>
+        <p class="lede reveal">Chrome extensions, mostly under my own label, <a class="u" href="https://www.tailsgate.com/" target="_blank" rel="noopener">Tailsgate</a>. User counts are from the Chrome Web Store, October 2026.</p>
+
+        <ul class="list">
+          <li class="row reveal">
+            <span class="name">Claude Project Downloader</span>
+            <span class="desc">export the Claude.ai projects you already have: files, chats, Cowork tasks, the lot, as one ZIP or PDF. Grew into folders, chat search, scheduled backups and a usage meter. 5,300+ users, 4.9★</span>
+            <span class="meta"><a href="https://chromewebstore.google.com/detail/claude-project-downloader/leinefcadopiegfdgjddoilofknckkgh" target="_blank" rel="noopener">web store ↗</a> · <a href="https://claudeprojectdownloader.com" target="_blank" rel="noopener">site ↗</a><br><span class="earn">yes · a few hundred $ a month, 200+ paying</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">SaveAs</span>
+            <span class="desc">right-click any image and save it as PNG, JPG, WebP or PDF, whatever format the site served it in. 600+ users, 5★</span>
+            <span class="meta"><a href="https://chromewebstore.google.com/detail/saveas-image-as-pngjpgweb/hippoifhmcfaplbpambefjkekldcmodk" target="_blank" rel="noopener">web store ↗</a><br><span class="earn">free</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">TrickleType</span>
+            <span class="desc">types a draft you already have into Google Docs at a human pace, over a minute or four hours. 590+ users</span>
+            <span class="meta"><a href="https://chromewebstore.google.com/detail/trickletype/oemlgmejkpfbcmfbpphhhogpfpdkhkdp" target="_blank" rel="noopener">web store ↗</a> · <a href="https://github.com/heyitsR1/TrickleType" target="_blank" rel="noopener">github ↗</a><br><span class="earn">free, after paid didn't stick</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Claude Usage Meter</span>
+            <span class="desc">your Claude usage limits as a live meter, plus chat export. 460+ users. Being folded into the downloader</span>
+            <span class="meta"><a href="https://chromewebstore.google.com/detail/colklnnimabdkihcbolgdjajnmkbnibd" target="_blank" rel="noopener">web store ↗</a><br><span class="earn">a little · $4.99 pro</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Mass Unfollow for Instagram</span>
+            <span class="desc">sorts who doesn't follow you back, bulk-unfollows with rate caps, and hands you a CSV to undo it</span>
+            <span class="meta"><a href="https://chromewebstore.google.com/detail/jgmfgdofacdadmhcadibeekcmipebgeb" target="_blank" rel="noopener">web store ↗</a> · <a href="https://github.com/heyitsR1/instagram-unfollowers" target="_blank" rel="noopener">github ↗</a><br><span class="earn">free · tip jar</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">PDF Downloader</span>
+            <span class="desc">finds and saves the PDF on a page, even the embedded ones with no download button. 120+ users</span>
+            <span class="meta"><a href="https://tailsgate.com/pdf-downloader" target="_blank" rel="noopener">page ↗</a><br><span class="earn">free</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">KillSlop</span>
+            <span class="desc">hides AI slop on YouTube, X and LinkedIn, backed by a community-kept list of 2,400+ channels. Open source</span>
+            <span class="meta"><a href="https://killslop.app" target="_blank" rel="noopener">site ↗</a> · <a href="https://github.com/heyitsR1/killslop" target="_blank" rel="noopener">github ↗</a><br><span class="earn">free · donations</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">highl8te</span>
+            <span class="desc">highlight any text and get it explained, fully offline</span>
+            <span class="meta"><a href="https://tailsgate.com/highl8te" target="_blank" rel="noopener">page ↗</a><br><span class="earn">free · tip jar</span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec ledger">
+      <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">μ</span> bets &amp; businesses</div>
+
+        <ul class="list">
+          <li class="row reveal">
+            <span class="name">Markee</span>
+            <span class="desc">a SaaS that makes Chrome Web Store screenshots and promo tiles from your extension, with AI layouts. Built because I kept making them by hand</span>
+            <span class="meta"><a href="https://markee.app" target="_blank" rel="noopener">markee.app ↗</a><br><span class="earn">barely · one sale, still trying</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Etch My Mac</span>
+            <span class="desc">auctioning laser-etched sponsor spots on my MacBook lid to pay for the MacBook. Bidding, payments, the works</span>
+            <span class="meta"><a href="https://etchmymac.com" target="_blank" rel="noopener">etchmymac.com ↗</a><br><span class="earn">ongoing</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Two course-video downloaders</span>
+            <span class="desc">built, grew to a few thousand dollars in sales and 150+ paying customers in about three months, then handed to a partner who runs them now</span>
+            <span class="meta">handed off<br><span class="earn">yes · low four figures, now affiliate</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Tailsgate</span>
+            <span class="desc">the label all of this ships under: one site, shared licensing, one support inbox</span>
+            <span class="meta"><a href="https://www.tailsgate.com/" target="_blank" rel="noopener">tailsgate.com ↗</a></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec ledger">
+      <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">ψ</span> the plumbing nobody sees</div>
+        <p class="lede reveal">Selling a $5 extension from Nepal means building the boring half yourself.</p>
+
+        <ul class="list">
+          <li class="row reveal">
+            <span class="name">Licensing workers</span>
+            <span class="desc">Cloudflare Workers that check licence keys against Freemius and keep a nightly cached copy, so paying users keep working when Freemius doesn't. Survived a payment provider dropping all three products at once</span>
+            <span class="meta">cloudflare workers · kv · freemius</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Conversion dashboard</span>
+            <span class="desc">funnel events, revenue backfill from webhooks and a pricing A/B test readout ($4.99 beat $9.99 on revenue per view, so it stayed)</span>
+            <span class="meta">analytics engine · sql · webhooks</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Daily SEO run</span>
+            <span class="desc">a headless Claude agent that writes, lints, builds and publishes a post to the product site every morning at ten</span>
+            <span class="meta">launchd · claude code · vercel</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">vo</span>
+            <span class="desc">one command turns a raw voiceover into a tutorial: denoised voice, local Whisper captions burned in</span>
+            <span class="meta">cli · deepfilternet · whisper</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">claude-code-waker</span>
+            <span class="desc">keeps my Claude Code usage windows rolling so the limits reset when I want them to</span>
+            <span class="meta">cli</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec ledger">
+      <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">·</span> smaller, odder, older</div>
+
+        <ul class="list">
+          <li class="row reveal">
+            <span class="name">Oglepeek</span>
+            <span class="desc">inventory and point-of-sale for a sunglasses shop. Client work</span>
+            <span class="meta">web app<br><span class="earn">paid gig</span></span>
+          </li>
+          <li class="row reveal">
+            <span class="name">MeroShare automation</span>
+            <span class="desc">auto-applies to Nepali IPOs so you don't have to log in every time one opens</span>
+            <span class="meta">python</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Business extractor</span>
+            <span class="desc">pulls business listings off Google Maps into a lead sheet</span>
+            <span class="meta">scraper</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">ClarityAI</span>
+            <span class="desc">a career-guidance platform, built with a team</span>
+            <span class="meta">team project</span>
+          </li>
+          <li class="row reveal">
+            <span class="name">Wave Rush</span>
+            <span class="desc">a three.js boat racer, because I wanted to learn three.js</span>
+            <span class="meta">three.js</span>
+          </li>
+          <li class="row reveal">
+            <a class="name" href="../projects.html">SikSak, World Cup predictor &amp; the rest</a>
+            <span class="desc">the class projects and earlier builds, written up properly</span>
+            <span class="meta"><a href="../projects.html">projects →</a></span>
+          </li>
+        </ul>
+
+        <div class="after reveal">
+          <a href="https://github.com/heyitsR1" target="_blank" rel="noopener">github ↗</a>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          <a href="https://www.youtube.com/@dev.aarohan" target="_blank" rel="noopener">build logs on youtube ↗</a>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          <a href="../index.html#hi">say hi →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>φ r1 · Aarohan Niraula · Kathmandu</span>
+      <span><a href="../index.html">home</a> · <a href="#top">top ↑</a></span>
+    </div>
+  </footer>
+
+  <script src="../js/fireflies.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
