@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>stuff · r1</title>
-  <meta name="description" content="Everything Aarohan (r1) has shipped: Chrome extensions with thousands of users, the plumbing that bills for them, AI ad pipelines at work, and the experiments in between. What each one does, where it lives, and whether it ever made money.">
+  <meta name="description" content="Aarohan Niraula builds software that earns or saves money: AI pipelines that write and launch Meta ads, Shopify funnels, and Chrome extensions used by 7,000+ people. Everything here is live.">
   <link rel="stylesheet" href="../css/1-base.css">
   <link rel="stylesheet" href="../css/2-layout.css">
   <link rel="stylesheet" href="../css/3-animations.css">
@@ -35,32 +35,61 @@
     <header class="page-head">
       <div class="wrap-wide">
         <h1><span class="g">Σ</span>stuff</h1>
-        <p>The whole ledger. Everything I've shipped, half-shipped, or keep running at work: what it does, where it lives, and the honest answer to "did it ever make money?" The <a class="u" href="../projects.html">projects page</a> has the long notes; this one has the receipts.</p>
+        <p>I build software that earns or saves money: AI pipelines that write and launch ads every night, Shopify funnels, and Chrome extensions used by 7,000+ people. Everything here is live. If you only read three, read the three below.</p>
         <div class="tally reveal">
           <span><b>10+</b> chrome extensions shipped</span>
           <span><b>7k+</b> people using them</span>
-          <span><b>1</b> paying the bills right now</span>
-          <span><b>0</b> co-founders</span>
+          <span><b>200+</b> paying customers</span>
+          <span><b>500+</b> ad batches launched</span>
+        </div>
+        <div class="cta reveal">
+          <a class="cta-main" href="../index.html#hi">work with me →</a>
+          <a href="#all">or see everything ↓</a>
         </div>
       </div>
     </header>
 
     <section class="sec ledger">
       <div class="wrap-wide">
+        <div class="sec-head reveal"><span class="g">θ</span> start here</div>
+
+        <div class="feat">
+          <article class="feat-card reveal">
+            <span class="feat-for">for an ad agency</span>
+            <h2>Native ad pipeline</h2>
+            <p><b>The job:</b> long-form advertorials for paid social, written at a volume no strategist can keep up with by hand.</p>
+            <p><b>What I built:</b> a nightly pipeline that writes them end to end (angles, hooks, outline, draft, a QA score, generated images) and uploads them to Meta as paused ads. A person approves before anything spends.</p>
+            <p class="feat-result">Hundreds of drafts and 300+ hooks across three brands. Runs every night.</p>
+            <span class="feat-stack">python · github actions · meta api</span>
+          </article>
+
+          <article class="feat-card reveal">
+            <span class="feat-for">for an ad agency</span>
+            <h2>ClickUp → Meta launcher</h2>
+            <p><b>The job:</b> getting a finished brief live as an ad set without an afternoon of copy-paste and the mistakes that come with it.</p>
+            <p><b>What I built:</b> a strategist marks a ClickUp task "ready to launch" and it becomes an ad set: creatives from Drive, copy, landing page, and guard rails so nothing ships half-filled. A media buyer checks feed mock-ups and clicks launch.</p>
+            <p class="feat-result">500+ ad batches launched through it.</p>
+            <span class="feat-stack">python · react · vercel</span>
+          </article>
+
+          <article class="feat-card reveal">
+            <span class="feat-for">my own product</span>
+            <h2>Claude Project Downloader</h2>
+            <p><b>The job:</b> Claude.ai has no way to export a whole project. People wanted their files, chats and Cowork tasks out in one go.</p>
+            <p><b>What I built:</b> a Chrome extension that exports all of it as a ZIP or PDF, then grew folders, search and scheduled backups. Plus the licensing, payments and analytics behind it, solo.</p>
+            <p class="feat-result">5,000+ users, 200+ paying customers.</p>
+            <span class="feat-stack"><a href="https://claudeprojectdownloader.com" target="_blank" rel="noopener">site ↗</a> · <a href="https://chromewebstore.google.com/detail/claude-project-downloader/leinefcadopiegfdgjddoilofknckkgh" target="_blank" rel="noopener">web store ↗</a></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec ledger" id="all">
+      <div class="wrap-wide">
         <div class="sec-head reveal"><span class="g">ω</span> day job · creative strategy alchemy</div>
-        <p class="lede reveal">I'm the growth engineer, a.k.a. the AI guy, at a creative-strategy agency running paid social for DTC health and skincare brands. Shopify, CRO, and pipelines that make ads while everyone sleeps. Client names stay with the clients.</p>
+        <p class="lede reveal">I'm the growth engineer, a.k.a. the AI guy, at a creative-strategy agency running paid social for DTC health and skincare brands. Shopify, CRO, and pipelines that make ads while everyone sleeps. I keep client names private. The pipeline and the launcher are up top; this is the rest.</p>
 
         <ul class="list">
-          <li class="row reveal">
-            <span class="name">Native ad pipeline</span>
-            <span class="desc">writes long-form advertorials end to end every night: angles, hooks, outline, draft, a QA score, generated images, then uploads them to Meta as paused ads for a human to approve. About ten drafts a run, hundreds so far, 300+ hooks across three brands</span>
-            <span class="meta">python · github actions · meta api<br><span class="earn">in production daily</span></span>
-          </li>
-          <li class="row reveal">
-            <span class="name">ClickUp → Meta launcher</span>
-            <span class="desc">a strategist marks a ClickUp task "ready to launch" and it becomes an ad set: creatives from Drive, copy, landing page, guard rails so nothing ships half-filled. A media buyer reviews feed mock-ups and clicks launch. 500+ ad batches have gone through it</span>
-            <span class="meta">python · react · vercel<br><span class="earn">in production</span></span>
-          </li>
           <li class="row reveal">
             <span class="name">Shopify landers &amp; funnels</span>
             <span class="desc">15+ landing pages, advertorials and product-page reworks across two brands, plus a quiz funnel that types your skin and sends you to the right serum</span>
@@ -88,7 +117,7 @@
         <ul class="list">
           <li class="row reveal">
             <span class="name">Claude Project Downloader</span>
-            <span class="desc">export the Claude.ai projects you already have: files, chats, Cowork tasks, the lot, as one ZIP or PDF. Grew into folders, chat search, scheduled backups and a usage meter. 5,300+ users, 4.9★</span>
+            <span class="desc">export the Claude.ai projects you already have: files, chats, Cowork tasks, the lot, as one ZIP or PDF. More on it above. 5,000+ users</span>
             <span class="meta"><a href="https://chromewebstore.google.com/detail/claude-project-downloader/leinefcadopiegfdgjddoilofknckkgh" target="_blank" rel="noopener">web store ↗</a> · <a href="https://claudeprojectdownloader.com" target="_blank" rel="noopener">site ↗</a><br><span class="earn">yes · a few hundred $ a month, 200+ paying</span></span>
           </li>
           <li class="row reveal">
@@ -197,39 +226,12 @@
     <section class="sec ledger">
       <div class="wrap-wide">
         <div class="sec-head reveal"><span class="g">·</span> smaller, odder, older</div>
+        <p class="lede reveal">Inventory and point-of-sale for a sunglasses shop (paid client work), a bot that auto-applies to Nepali IPOs on MeroShare, a Google Maps lead scraper, ClarityAI (a career-guidance platform built with a team), and Wave Rush, a three.js boat racer. The class projects and earlier builds are written up on the <a class="u" href="../projects.html">projects page</a>.</p>
 
-        <ul class="list">
-          <li class="row reveal">
-            <span class="name">Oglepeek</span>
-            <span class="desc">inventory and point-of-sale for a sunglasses shop. Client work</span>
-            <span class="meta">web app<br><span class="earn">paid gig</span></span>
-          </li>
-          <li class="row reveal">
-            <span class="name">MeroShare automation</span>
-            <span class="desc">auto-applies to Nepali IPOs so you don't have to log in every time one opens</span>
-            <span class="meta">python</span>
-          </li>
-          <li class="row reveal">
-            <span class="name">Business extractor</span>
-            <span class="desc">pulls business listings off Google Maps into a lead sheet</span>
-            <span class="meta">scraper</span>
-          </li>
-          <li class="row reveal">
-            <span class="name">ClarityAI</span>
-            <span class="desc">a career-guidance platform, built with a team</span>
-            <span class="meta">team project</span>
-          </li>
-          <li class="row reveal">
-            <span class="name">Wave Rush</span>
-            <span class="desc">a three.js boat racer, because I wanted to learn three.js</span>
-            <span class="meta">three.js</span>
-          </li>
-          <li class="row reveal">
-            <a class="name" href="../projects.html">SikSak, World Cup predictor &amp; the rest</a>
-            <span class="desc">the class projects and earlier builds, written up properly</span>
-            <span class="meta"><a href="../projects.html">projects →</a></span>
-          </li>
-        </ul>
+        <div class="hire reveal">
+          <p>Need something like this built? Ad automation, a Shopify funnel, a Chrome extension, or an internal tool your team keeps doing by hand.</p>
+          <a class="cta-main" href="../index.html#hi">tell me about it →</a>
+        </div>
 
         <div class="after reveal">
           <a href="https://github.com/heyitsR1" target="_blank" rel="noopener">github ↗</a>

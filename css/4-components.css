@@ -658,3 +658,99 @@ body.lb-open { overflow: hidden; }
 .ledger .row .meta { line-height: 1.7; }
 .ledger .row .earn { color: var(--sun-dim); }
 .ledger .row a.name:hover { color: #fff; }
+
+/* stuff page: the way in for someone who might hire me */
+.page-head .cta,
+.ledger .hire {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.8rem 1.8rem;
+  margin-top: 2.2rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.page-head .cta a { color: var(--ink-3); }
+.page-head .cta a:hover { color: var(--sun); }
+
+.cta-main {
+  color: var(--bg) !important;
+  background: var(--sun);
+  padding: 0.7rem 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease;
+}
+.cta-main:hover { background: #fff; }
+
+.ledger .hire {
+  margin-top: 3.5rem;
+  padding: 1.8rem;
+  border: 1px solid var(--line-2);
+  justify-content: space-between;
+}
+.ledger .hire p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--ink);
+  max-width: 32rem;
+}
+
+/* stuff page: three featured case studies */
+.feat {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+.feat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.6rem 1.5rem 1.4rem;
+  border: 1px solid var(--line-2);
+  transition: border-color 0.25s ease;
+}
+.feat-card:hover { border-color: var(--sun-dim); }
+
+.feat-card h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.feat-card p {
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.feat-card p b { color: var(--ink); font-weight: 400; }
+
+.feat-card .feat-result {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  color: var(--sun);
+  font-weight: 400;
+}
+
+.feat-for,
+.feat-stack {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.feat-stack a { color: var(--ink-3); }
+.feat-stack a:hover { color: var(--sun); }
+
+@media (max-width: 900px) {
+  .feat { grid-template-columns: 1fr; }
+}
