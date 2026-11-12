@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "portfolio",
+  "account_id": "ec29d3d5939b0b457f6ea1f8e91a9dc5",
+  "main": "cf/worker.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // Exact paths only (Vercel didn't rewrite /x.html to /x); the worker adds directory indexes.
+    "html_handling": "none",
+    "not_found_handling": "none",
+    // The worker must see every request to redirect the bare domain to www.
+    "run_worker_first": true
+  },
+  // Workers Custom Domains (Cloudflare manages their DNS records). The worker redirects the apex to www.
+  "routes": [
+    { "pattern": "www.aarohanniraula.com.np", "custom_domain": true },
+    { "pattern": "aarohanniraula.com.np", "custom_domain": true }
+  ]
+}

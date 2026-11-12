@@ -1,0 +1,12 @@
+.git
+.gitignore
+.vscode
+.DS_Store
+**/.DS_Store
+__pycache__
+.wrangler
+wrangler.jsonc
+.assetsignore
+cf
+node_modules
+README.md
