@@ -61,3 +61,11 @@
   .lb-prev, .lb-next { width: 2.6rem; height: 2.6rem; }
   .lb img { max-height: calc(100vh - 11rem); }
 }
+
+/* ---------- wall on phones ---------- */
+@media (max-width: 720px) {
+  .wall-jump { gap: 0 0.8rem; }
+  .tile { padding: 1rem 1rem 0.9rem; }
+  .tile h2 { font-size: 1.2rem; }
+  .tile .what { font-size: 0.95rem; }
+}
