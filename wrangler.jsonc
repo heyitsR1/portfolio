@@ -15,9 +15,12 @@
     // The worker must see every request to redirect the bare domain to www.
     "run_worker_first": true
   },
-  // Workers Custom Domains (Cloudflare manages their DNS records). The worker redirects the apex to www.
+  // Worker Routes on the existing proxied DNS records (the old Vercel CNAME/A stay but are never reached:
+  // the worker answers everything from its assets). The worker redirects the apex to www.
+  // To switch to Workers Custom Domains: delete the apex and www DNS records in the dashboard, then use
+  // { "pattern": "www.aarohanniraula.com.np", "custom_domain": true } (and the same for the apex) instead.
   "routes": [
-    { "pattern": "www.aarohanniraula.com.np", "custom_domain": true },
-    { "pattern": "aarohanniraula.com.np", "custom_domain": true }
+    { "pattern": "www.aarohanniraula.com.np/*", "zone_name": "aarohanniraula.com.np" },
+    { "pattern": "aarohanniraula.com.np/*", "zone_name": "aarohanniraula.com.np" }
   ]
 }

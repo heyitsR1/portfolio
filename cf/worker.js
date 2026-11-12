@@ -1,12 +1,15 @@
 // Serves the static site like Vercel did: exact paths (/projects.html stays /projects.html),
-// directory indexes (/ and /stuff/), and the bare domain redirected to www.
+// directory indexes (/ and /stuff/), the bare domain redirected to www, and http to https.
 const APEX = "aarohanniraula.com.np";
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === APEX) {
-      url.hostname = `www.${APEX}`;
+    // Bare domain -> www, and http -> https (Vercel did both; the zone doesn't force HTTPS).
+    const local = url.hostname.endsWith(".workers.dev") || url.hostname === "localhost";
+    if (url.hostname === APEX || (url.protocol === "http:" && !local)) {
+      url.hostname = url.hostname === APEX ? `www.${APEX}` : url.hostname;
+      url.protocol = "https:";
       return Response.redirect(url.toString(), 308);
     }
     // /stuff -> /stuff/ (so relative links inside the page resolve), then directory -> index.html
